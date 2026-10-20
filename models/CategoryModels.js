@@ -12,8 +12,10 @@ const categorySchema = new mongoose.Schema({
   slug : {
     type: String,
     lowercase: true,
-  }
-});
+  },
+},
+  {timestamps: true}
+);
 
 // 2- Create model
 const CategoryModel = mongoose.model('Category', categorySchema);

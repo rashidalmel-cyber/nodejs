@@ -68,6 +68,26 @@ exports.updateCategory = asyncHandler(async (req, res) => {
 });
 
 
+// @desc    Delete specific category by id
+// @route   DELETE /api/v1/categories/:id
+// @access  Private
+exports.deleteCategory = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.isObjectIdOrHexString(id)) {
+    return res.status(400).json({ msg: 'Invalid category id' });
+  }
+
+  const category = await CategoryModel.findByIdAndDelete(id);
+
+  if (!category) {
+    return res.status(404).json({ msg: `No category for this id ${id}` });
+  }
+
+  return res.status(200).json({ msg: 'Deleted successfully' });
+});
+
+
 // @desc    Create category
 // @route   POST /api/v1/categories
 // @access  Private

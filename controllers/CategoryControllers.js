@@ -23,7 +23,7 @@ exports.getCategory = asyncHandler(async (req, res) => {
   const { id } = req.params;
   const category = await CategoryModel.findById(id);
   if (!category) {
-    res.status(404).json({ msg: `No category for this id ${id}` });
+    return res.status(404).json({ msg: `No category for this id ${id}` });
   }
   res.status(200).json({ data: category });
 });

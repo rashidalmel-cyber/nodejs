@@ -1,12 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const path = require('path');
 
-dotenv.config({ path: 'config.env' });
+dotenv.config({ path: path.join(__dirname, 'config.env') });
 const dbConnection = require('./config/database');
 const categoryRoute = require('./routes/CategoryRoutes');
 const ApiError = require('./utils/apiError');
 const globalError = require('./middlewares/errorMiddleware');
+const subcategoryRoute = require('./routes/subCategoryRoutes');
+
 
 // express app
 const app = express();
@@ -23,6 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Mount Routes
 app.use('/api/v1/categories', categoryRoute);
+app.use('/api/v1/subcategories', subcategoryRoute);
 
 
 app.all('/{*splat}', (req, res, next) => {
@@ -35,8 +39,17 @@ app.use(globalError);
 
 const PORT = process.env.PORT || 8000;
 dbConnection()
-    .then(() => {
-        app.listen(PORT, () => {
+    .then((database) => {
+        app.listen(PORT, (err) => {
+            if (err) {
+                console.error(`Server Error: ${err.message}`);
+                process.exitCode = 1;
+                database.disconnect().catch((disconnectError) => {
+                    console.error(`Database Error: ${disconnectError.message}`);
+                });
+                return;
+            }
+
             console.log(`App running on port ${PORT}`);
         });
     })

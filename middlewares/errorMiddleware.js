@@ -3,7 +3,9 @@ const globalError = (err, req, res, next) => {
         return next(err);
     }
 
-    const errorStatus = err.statusCode || err.status;
+    const isDuplicateKeyError = [err.code, err.cause?.code]
+        .some((code) => code === 11000 || code === 11001);
+    const errorStatus = isDuplicateKeyError ? 409 : err.statusCode || err.status;
     const statusCode = Number.isInteger(errorStatus) && errorStatus >= 400 && errorStatus <= 599
         ? errorStatus
         : 500;

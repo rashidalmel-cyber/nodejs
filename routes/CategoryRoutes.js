@@ -11,7 +11,7 @@ const {
 
 const router = express.Router();
 
-router.route('/').get(getCategories).post(createCategory);
+router.route('/').get(getCategories).post(createCategoryValidator, createCategory);
 router
     .route('/:id')
     .get(getCategoryValidator, getCategory)

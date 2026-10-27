@@ -8,9 +8,16 @@ const CategoryModel = require('../models/CategoryModel');
 // @route   GET /api/v1/categories
 // @access  Public
 exports.getCategories = asyncHandler(async (req, res) => {
-    const page =  req.query.page *1  || 1;
-    const limit = req.query.limit *1  || 5;
+    const page = req.query.page === undefined ? 1 : Number(req.query.page);
+    const limit = req.query.limit === undefined ? 5 : Number(req.query.limit);
     const skip = (page - 1) * limit;
+
+    if (!Number.isSafeInteger(page) || page < 1
+        || !Number.isSafeInteger(limit) || limit < 1
+        || !Number.isSafeInteger(skip)) {
+        return res.status(400).json({ msg: 'page and limit must be positive integers within the supported range' });
+    }
+
     const categories = await CategoryModel.find({}).skip(skip).limit(limit);
     res.status(200).json({ results: categories.length, page, data: categories });
 });
@@ -34,7 +41,7 @@ exports.getCategory = asyncHandler(async (req, res) => {
 // @access  Private
 exports.updateCategory = asyncHandler(async (req, res) => {
   const { id } = req.params;
-  const name = req.body?.name;
+  const name = req.body && req.body.name;
 
   if (!mongoose.isObjectIdOrHexString(id)) {
     return res.status(400).json({ msg: 'Invalid category id' });
@@ -92,7 +99,12 @@ exports.deleteCategory = asyncHandler(async (req, res) => {
 // @route   POST /api/v1/categories
 // @access  Private
 exports.createCategory = asyncHandler(async (req, res) => {
-    const name = req.body.name;
+    const name = req.body && req.body.name;
+
+    if (typeof name !== 'string' || !name.trim()) {
+        return res.status(400).json({ msg: 'Category name is required' });
+    }
+
     const category = await CategoryModel.create({ name, slug: slugify(name) });
     res.status(201).json({ data: category });
 });

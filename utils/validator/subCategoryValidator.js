@@ -1,39 +1,55 @@
-const { check } = require('express-validator');
+const { body, param } = require('express-validator');
 const validatorMiddleware = require('../../middlewares/validatorMiddleware');
 
-// exports.getSubCategoryValidator = [
-//   check('id').isMongoId().withMessage('Invalid Subcategory id format'),
-//   validatorMiddleware,
-// ];
+const subCategoryNameValidator = () => body('name')
+  .exists()
+  .withMessage('Subcategory name is required.')
+  .bail()
+  .isString()
+  .withMessage('Subcategory name must be a string.')
+  .bail()
+  .trim()
+  .notEmpty()
+  .withMessage('Subcategory name is required.')
+  .bail()
+  .isLength({ min: 2, max: 32 })
+  .withMessage('Subcategory name must contain between 2 and 32 characters.');
+
+const subCategoryIdValidator = () => param('id')
+  .isMongoId()
+  .withMessage('Invalid subcategory ID. Expected 24 hexadecimal characters.');
+
+const parentCategoryValidator = () => body('categoryId')
+  .exists()
+  .withMessage('categoryId is required.')
+  .bail()
+  .isString()
+  .withMessage('categoryId must be a string.')
+  .bail()
+  .notEmpty()
+  .withMessage('categoryId is required.')
+  .bail()
+  .isMongoId()
+  .withMessage('Invalid categoryId. Expected 24 hexadecimal characters.');
+
+exports.getSubCategoryValidator = [
+  subCategoryIdValidator(),
+  validatorMiddleware,
+];
 
 exports.createSubCategoryValidator = [
-  check('name')
-    .notEmpty()
-    .withMessage('SubCategory required')
-    .isLength({ min: 2 })
-    .withMessage('Too short Subcategory name')
-    .isLength({ max: 32 })
-    .withMessage('Too long Subcategory name'),
-  check('category')
-    .notEmpty()
-    .withMessage('subCategory must be belong to category')
-    .isMongoId()
-    .withMessage('Invalid Category id format'),
+  subCategoryNameValidator(),
+  parentCategoryValidator(),
   validatorMiddleware,
 ];
 exports.updateSubCategoryValidator = [
-  check('id').isMongoId().withMessage('Invalid Subcategory id format'),
-  check('name')
-    .notEmpty()
-    .withMessage('SubCategory required')
-    .isLength({ min: 3 })
-    .withMessage('Too short Subcategory name')
-    .isLength({ max: 32 })
-    .withMessage('Too long Subcategory name'),
+  subCategoryIdValidator(),
+  subCategoryNameValidator(),
+  parentCategoryValidator().optional(),
   validatorMiddleware,
 ];
 
 exports.deleteSubCategoryValidator = [
-  check('id').isMongoId().withMessage('Invalid Subcategory id format'),
+  subCategoryIdValidator(),
   validatorMiddleware,
 ];

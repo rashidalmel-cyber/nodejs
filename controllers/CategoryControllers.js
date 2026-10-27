@@ -1,13 +1,14 @@
 const slugify = require('slugify');
 const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
+const ApiError = require('../utils/apiError');
 
 const CategoryModel = require('../models/CategoryModel');
 
 // @desc    Get list of categories
 // @route   GET /api/v1/categories
 // @access  Public
-exports.getCategories = asyncHandler(async (req, res) => {
+exports.getCategories = asyncHandler(async (req, res, next) => {
     const page = req.query.page === undefined ? 1 : Number(req.query.page);
     const limit = req.query.limit === undefined ? 5 : Number(req.query.limit);
     const skip = (page - 1) * limit;
@@ -15,96 +16,92 @@ exports.getCategories = asyncHandler(async (req, res) => {
     if (!Number.isSafeInteger(page) || page < 1
         || !Number.isSafeInteger(limit) || limit < 1
         || !Number.isSafeInteger(skip)) {
-        return res.status(400).json({ msg: 'page and limit must be positive integers within the supported range' });
+        return next(new ApiError('page and limit must be positive whole numbers within the supported range.', 400));
     }
 
     const categories = await CategoryModel.find({}).skip(skip).limit(limit);
-    res.status(200).json({ results: categories.length, page, data: categories });
+    res.status(200).json({
+        status: 'success',
+        message: categories.length ? 'Categories retrieved successfully.' : 'No categories found.',
+        results: categories.length,
+        page,
+        data: categories,
+    });
 });
 
 
 // @desc      Get specific category by id
 // @route     GET /api/v1/categories/:id
 // @access    Public
-exports.getCategory = asyncHandler(async (req, res) => {
+exports.getCategory = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const category = await CategoryModel.findById(id);
   if (!category) {
-    return res.status(404).json({ msg: `No category for this id ${id}` });
+    return next(new ApiError(`Category not found for ID: ${id}.`, 404));
   }
-  res.status(200).json({ data: category });
+  res.status(200).json({ status: 'success', message: 'Category retrieved successfully.', data: category });
 });
 
 
 // @desc    Update specific category by id
 // @route   PUT /api/v1/categories/:id
 // @access  Private
-exports.updateCategory = asyncHandler(async (req, res) => {
+exports.updateCategory = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
   const name = req.body && req.body.name;
 
   if (!mongoose.isObjectIdOrHexString(id)) {
-    return res.status(400).json({ msg: 'Invalid category id' });
+    return next(new ApiError('Invalid category ID. Expected 24 hexadecimal characters.', 400));
   }
 
   if (typeof name !== 'string' || !name.trim()) {
-    return res.status(400).json({ msg: 'Category name is required' });
+    return next(new ApiError('Category name is required.', 400));
   }
 
-  try {
-    const category = await CategoryModel.findByIdAndUpdate(
-      id,
-      { name, slug: slugify(name) },
-      { new: true, runValidators: true }
-    );
+  const category = await CategoryModel.findByIdAndUpdate(
+    id,
+    { name, slug: slugify(name) },
+    { returnDocument: 'after', runValidators: true }
+  );
 
-    if (!category) {
-      return res.status(404).json({ msg: `No category for this id ${id}` });
-    }
-
-    return res.status(200).json({ data: category });
-  } catch (err) {
-    if (err.code === 11000) {
-      return res.status(409).json({ msg: 'Category name must be unique' });
-    }
-    if (err.name === 'ValidationError') {
-      return res.status(400).json({ msg: err.message });
-    }
-    throw err;
+  if (!category) {
+    return next(new ApiError(`Category not found for ID: ${id}.`, 404));
   }
+
+  return res.status(200).json({ status: 'success', message: 'Category updated successfully.', data: category });
 });
 
 
 // @desc    Delete specific category by id
 // @route   DELETE /api/v1/categories/:id
 // @access  Private
-exports.deleteCategory = asyncHandler(async (req, res) => {
+exports.deleteCategory = asyncHandler(async (req, res, next) => {
   const { id } = req.params;
 
   if (!mongoose.isObjectIdOrHexString(id)) {
-    return res.status(400).json({ msg: 'Invalid category id' });
+    return next(new ApiError('Invalid category ID. Expected 24 hexadecimal characters.', 400));
   }
 
   const category = await CategoryModel.findByIdAndDelete(id);
 
   if (!category) {
-    return res.status(404).json({ msg: `No category for this id ${id}` });
+    return next(new ApiError(`Category not found for ID: ${id}.`, 404));
   }
 
-  return res.status(200).json({ msg: 'Deleted successfully' });
+  return res.status(200).json({ status: 'success', message: 'Category deleted successfully.', msg: 'Deleted successfully' });
 });
 
 
 // @desc    Create category
 // @route   POST /api/v1/categories
 // @access  Private
-exports.createCategory = asyncHandler(async (req, res) => {
+exports.createCategory = asyncHandler(async (req, res, next) => {
     const name = req.body && req.body.name;
 
     if (typeof name !== 'string' || !name.trim()) {
-        return res.status(400).json({ msg: 'Category name is required' });
+        return next(new ApiError('Category name is required.', 400));
     }
 
     const category = await CategoryModel.create({ name, slug: slugify(name) });
-    res.status(201).json({ data: category });
+    res.status(201).json({ status: 'success', message: 'Category created successfully.', data: category });
 });

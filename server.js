@@ -31,7 +31,7 @@ app.use('/api/v1/subcategories', subcategoryRoute);
 
 app.all('/{*splat}', (req, res, next) => {
     // Create error and send it to error handling middleware
-    next(new ApiError(`Can't find this route: ${req.originalUrl}`, 404));
+    next(new ApiError(`Route not found: ${req.method} ${req.originalUrl}. Check the URL, HTTP method, and any required ID.`, 404));
 });
 
 // Return JSON for errors forwarded by routes and middleware.

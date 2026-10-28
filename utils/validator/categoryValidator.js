@@ -15,12 +15,17 @@ const categoryNameValidator = () => body('name')
   .isLength({ min: 3, max: 32 })
   .withMessage('Category name must contain between 3 and 32 characters.');
 
-const categoryIdValidator = () => param('id')
+const categoryIdValidator = (field = 'id') => param(field)
   .isMongoId()
   .withMessage('Invalid category ID. Expected 24 hexadecimal characters.');
 
 exports.getCategoryValidator = [
   categoryIdValidator(),
+  validatorMiddleware,
+];
+
+exports.getCategorySubCategoriesValidator = [
+  categoryIdValidator('categoryId'),
   validatorMiddleware,
 ];
 

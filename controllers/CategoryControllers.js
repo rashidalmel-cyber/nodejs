@@ -25,6 +25,7 @@ exports.getCategories = asyncHandler(async (req, res, next) => {
         message: categories.length ? 'Categories retrieved successfully.' : 'No categories found.',
         results: categories.length,
         page,
+        limit,
         data: categories,
     });
 });

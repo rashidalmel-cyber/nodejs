@@ -8,6 +8,7 @@ const SubCategory = require('../models/SubCategoryModel');
 
 // @desc    Get list of subCategories
 // @route   GET /api/v1/subcategories
+// @route   GET /api/v1/categories/:categoryId/subcategories
 // @access  Public
 exports.getSubCategories = asyncHandler(async (req, res, next) => {
     const page = req.query.page === undefined ? 1 : Number(req.query.page);
@@ -20,10 +21,21 @@ exports.getSubCategories = asyncHandler(async (req, res, next) => {
         return next(new ApiError('page and limit must be positive whole numbers within the supported range.', 400));
     }
 
-    const subCategories = await SubCategory.find({}).skip(skip).limit(limit);
+    const filter = {};
+    const { categoryId } = req.params;
+    if (categoryId) {
+        const category = await CategoryModel.findById(categoryId);
+        if (!category) {
+            return next(new ApiError(`Category not found for ID: ${categoryId}.`, 404));
+        }
+        filter.category = categoryId;
+    }
+
+    const subCategories = await SubCategory.find(filter)
+        .skip(skip)
+        .limit(limit)
+        .populate('category');
     return res.status(200).json({
-        status: 'success',
-        message: subCategories.length ? 'Subcategories retrieved successfully.' : 'No subcategories found.',
         results: subCategories.length,
         page,
         data: subCategories,
@@ -35,7 +47,7 @@ exports.getSubCategories = asyncHandler(async (req, res, next) => {
 // @access  Public
 exports.getSubCategory = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
-    const subCategory = await SubCategory.findById(id);
+    const subCategory = await SubCategory.findById(id).populate('category', 'name');
 
     if (!subCategory) {
         return next(new ApiError(`Subcategory not found for ID: ${id}.`, 404));
@@ -61,6 +73,8 @@ exports.createSubCategory = asyncHandler(async (req, res, next) => {
         slug: slugify(name), 
         category: categoryId
     });
+
+    await subCategory.populate('category', 'name');
     
     res.status(201).json({ status: 'success', message: 'Subcategory created successfully.', data: subCategory });
 });
@@ -84,7 +98,7 @@ exports.updateSubCategory = asyncHandler(async (req, res, next) => {
     const subCategory = await SubCategory.findByIdAndUpdate(id, update, {
         returnDocument: 'after',
         runValidators: true,
-    });
+    }).populate('category', 'name');
 
     if (!subCategory) {
         return next(new ApiError(`Subcategory not found for ID: ${id}.`, 404));

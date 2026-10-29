@@ -2,20 +2,43 @@
 const assert = require('assert');
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const Category = require('../models/CategoryModel');
 const SubCategory = require('../models/SubCategoryModel');
+const Brand = require('../models/BrandModel');
+const Product = require('../models/productmodel');
 const ApiError = require('../utils/apiError');
 const categoryRoutes = require('../routes/CategoryRoutes');
 const subCategoryRoutes = require('../routes/subCategoryRoutes');
+const brandRoutes = require('../routes/brandroute');
+const productRoutes = require('../routes/productRoutes');
 const globalError = require('../middlewares/errorMiddleware');
 
 const categoryId = '507f1f77bcf86cd799439011';
 const otherCategoryId = '507f1f77bcf86cd799439012';
 const subCategoryId = '507f1f77bcf86cd799439021';
 const otherSubCategoryId = '507f1f77bcf86cd799439022';
+const brandId = '507f1f77bcf86cd799439031';
+const otherBrandId = '507f1f77bcf86cd799439032';
+const productId = '507f1f77bcf86cd799439041';
+const otherProductId = '507f1f77bcf86cd799439042';
 const missingId = '507f1f77bcf86cd799439099';
 const categories = new Map();
 const subCategories = new Map();
+const brands = new Map();
+const products = new Map();
+const productBody = {
+  title: 'Test phone',
+  description: 'A detailed description of this test phone.',
+  quantity: 5,
+  price: 100,
+  imageCover: 'phone.jpg',
+  category: categoryId,
+  subcategory: [subCategoryId],
+  brand: [brandId],
+  colors: ['Black'],
+  images: ['phone-back.jpg'],
+};
 let databaseError;
 let writeCalls;
 let checks = 0;
@@ -35,6 +58,16 @@ function reset() {
   subCategories.clear();
   subCategories.set(subCategoryId, { _id: subCategoryId, name: 'Nokia', slug: 'nokia', category: categoryId });
   subCategories.set(otherSubCategoryId, { _id: otherSubCategoryId, name: 'Samsung', slug: 'samsung', category: categoryId });
+  brands.clear();
+  brands.set(brandId, { _id: brandId, name: 'Apple', slug: 'apple' });
+  brands.set(otherBrandId, { _id: otherBrandId, name: 'Samsung', slug: 'samsung' });
+  products.clear();
+  products.set(productId, {
+    _id: productId, ...productBody, slug: 'test-phone', priceAfterDiscount: 80,
+  });
+  products.set(otherProductId, {
+    _id: otherProductId, ...productBody, title: 'Other phone', slug: 'other-phone',
+  });
   databaseError = undefined;
   writeCalls = 0;
 }
@@ -86,7 +119,7 @@ function mockModel(Model, records) {
     insertOne: async (data) => {
       checkDatabase();
       writeCalls += 1;
-      if ([...records.values()].some((record) => record.name === data.name)) throw duplicateError();
+      if (data.name !== undefined && [...records.values()].some((record) => record.name === data.name)) throw duplicateError();
       records.set(String(data._id), copy(data));
       return { acknowledged: true, insertedId: data._id };
     },
@@ -96,7 +129,8 @@ function mockModel(Model, records) {
       const data = update.$set || {};
       const current = records.get(String(id).toLowerCase());
       if (!current) return null;
-      if ([...records.values()].some((record) => String(record._id) !== String(id) && record.name === data.name)) {
+      if (data.name !== undefined
+        && [...records.values()].some((record) => String(record._id) !== String(id) && record.name === data.name)) {
         throw duplicateError();
       }
       const updated = copy({ ...current, ...data });
@@ -120,14 +154,46 @@ function mockModel(Model, records) {
 }
 
 async function runTests() {
+  // Exercise the real entry point with no database connection or listening port.
+  const originalConnect = mongoose.connect;
+  const originalListen = express.application.listen;
+  const originalConfig = dotenv.config;
+  try {
+    let connected = false;
+    let listening = false;
+    dotenv.config = () => ({});
+    mongoose.connect = async () => {
+      connected = true;
+      return { connection: { host: 'mock' }, disconnect: async () => {} };
+    };
+    express.application.listen = (port, callback) => {
+      assert.strictEqual(connected, true);
+      listening = true;
+      callback();
+    };
+    // eslint-disable-next-line global-require -- Load the entry point after installing startup mocks.
+    require('../server');
+    await new Promise((resolve) => { setImmediate(resolve); });
+    assert.strictEqual(listening, true, 'Server did not start');
+  } finally {
+    mongoose.connect = originalConnect;
+    express.application.listen = originalListen;
+    dotenv.config = originalConfig;
+  }
+  const missingNameError = await new SubCategory({ category: categoryId }).validate().catch((error) => error);
+  assert.ok(missingNameError && missingNameError.errors.name);
   const originalMode = process.env.NODE_ENV;
   process.env.NODE_ENV = 'production';
   mockModel(Category, categories);
   mockModel(SubCategory, subCategories);
+  mockModel(Brand, brands);
+  mockModel(Product, products);
   const app = express();
   app.use(express.json());
   app.use('/api/v1/categories', categoryRoutes);
   app.use('/api/v1/subcategories', subCategoryRoutes);
+  app.use('/api/v1/brands', brandRoutes);
+  app.use('/api/v1/products', productRoutes);
   app.all('/{*splat}', (req, res, next) => next(new ApiError(`Route not found: ${req.method} ${req.originalUrl}.`, 404)));
   app.use(globalError);
   const server = app.listen(0, '127.0.0.1');
@@ -166,6 +232,7 @@ async function runTests() {
     for (const resource of [
       { path: '/api/v1/categories', id: categoryId, duplicate: 'Books', name: 'Category' },
       { path: '/api/v1/subcategories', id: subCategoryId, duplicate: 'Samsung', name: 'Subcategory' },
+      { path: '/api/v1/brands', id: brandId, duplicate: 'Samsung', name: 'Brand' },
     ]) {
       const validBody = { name: 'New name', categoryId };
       for (const method of ['GET', 'PUT', 'DELETE']) {
@@ -246,6 +313,114 @@ async function runTests() {
       await request('DELETE', `${resource.path}/${resource.id}`, 200, { message: /deleted successfully/ });
       await request('GET', `${resource.path}/${resource.id}`, 404, { message: /not found/ });
     }
+
+    const productPath = '/api/v1/products';
+    for (const method of ['GET', 'PUT', 'DELETE']) {
+      reset();
+      const invalid = await request(method, `${productPath}/invalid`, 400, {
+        body: method === 'GET' ? undefined : { price: 100 },
+        message: /Invalid product ID/,
+      });
+      assert.strictEqual(invalid.errors[0].path, 'id');
+      await request(method, `${productPath}/${missingId}`, 404, {
+        body: method === 'GET' ? undefined : { price: 100 }, message: /Product not found/,
+      });
+      assert.strictEqual(writeCalls, 0);
+    }
+
+    for (const method of ['POST', 'PUT']) {
+      const path = productPath + (method === 'PUT' ? `/${productId}` : '');
+      for (const [field, values] of [
+        ['title', [null, 123, ' ', 'ab', 'x'.repeat(101)]],
+        ['description', [null, 123, 'Short', ' '.repeat(25)]],
+        ['quantity', [null, -1, 1.5, '5', true, Number.MAX_SAFE_INTEGER + 1]],
+        ['price', [null, -1, '100', true]],
+        ['priceAfterDiscount', [null, -1, '80', 101]],
+        ['imageCover', [null, 123, ' ']],
+        ['category', [null, 123, 'invalid', missingId]],
+        ['subcategory', [null, subCategoryId, [123], ['invalid'], [missingId],
+          [subCategoryId, subCategoryId.toUpperCase()]]],
+        ['brand', [null, brandId, [123], ['invalid'], [missingId], [brandId, brandId]]],
+        ['colors', [null, 'Black', [123], [' ']]],
+        ['images', [null, 'phone.jpg', [123], [' ']]],
+      ]) {
+        for (const value of values) {
+          reset();
+          const invalid = await request(method, path, 400, { body: { ...productBody, [field]: value } });
+          assert.ok(invalid.errors.some((error) => error.path === field || error.path.startsWith(`${field}[`)),
+            `${method} ${field}=${JSON.stringify(value)}: ${JSON.stringify(invalid.errors)}`);
+          assert.strictEqual(writeCalls, 0);
+        }
+      }
+      for (const body of [undefined, [], {}]) {
+        reset();
+        await request(method, path, 400, { body });
+        assert.strictEqual(writeCalls, 0);
+      }
+      reset();
+      const wrongCategory = await request(method, path, 400, {
+        body: { ...productBody, category: otherCategoryId },
+      });
+      assert.strictEqual(wrongCategory.errors[0].path, 'subcategory');
+      assert.strictEqual(writeCalls, 0);
+    }
+
+    for (const field of ['title', 'description', 'quantity', 'price', 'imageCover', 'category']) {
+      reset();
+      const body = { ...productBody };
+      delete body[field];
+      const invalid = await request('POST', productPath, 400, { body });
+      assert.ok(invalid.errors.some((error) => error.path === field));
+      assert.strictEqual(writeCalls, 0);
+    }
+
+    reset();
+    const createdProduct = await request('POST', productPath, 201, {
+      body: { ...productBody, title: '  New phone  ', priceAfterDiscount: 80 },
+    });
+    assert.strictEqual(createdProduct.data.title, 'New phone');
+    assert.strictEqual(createdProduct.data.slug, 'new-phone');
+    assert.strictEqual(createdProduct.data.price, 100);
+    assert.deepStrictEqual(createdProduct.data.subcategory, [subCategoryId]);
+    const singleProduct = await request('GET', `${productPath}/${createdProduct.data._id}`, 200);
+    assert.strictEqual(singleProduct.data.title, 'New phone');
+    await request('DELETE', `${productPath}/${createdProduct.data._id}`, 200);
+    await request('GET', `${productPath}/${createdProduct.data._id}`, 404);
+
+    reset();
+    for (const query of ['page=-1', 'limit=1.5', 'page=1&page=2', 'page=1e2', 'limit=0']) {
+      await request('GET', `${productPath}?${query}`, 400, { message: /positive whole numbers/ });
+    }
+    const productList = await request('GET', `${productPath}?page=2&limit=1`, 200);
+    assert.strictEqual(productList.results, 1);
+    assert.strictEqual(productList.data[0]._id, otherProductId);
+
+    const stockUpdate = await request('PUT', `${productPath}/${productId}`, 200, { body: { quantity: 0 } });
+    assert.strictEqual(stockUpdate.data.quantity, 0);
+    assert.strictEqual(stockUpdate.data.title, productBody.title);
+    const priceUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
+      body: { price: 200, priceAfterDiscount: 180 },
+    });
+    assert.strictEqual(priceUpdate.data.priceAfterDiscount, 180);
+    for (const body of [{ priceAfterDiscount: 201 }, { price: 170 }, { category: otherCategoryId }]) {
+      const previousWrites = writeCalls;
+      await request('PUT', `${productPath}/${productId}`, 400, { body });
+      assert.strictEqual(writeCalls, previousWrites);
+    }
+    const subcategoryUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
+      body: { subcategory: [otherSubCategoryId] },
+    });
+    assert.deepStrictEqual(subcategoryUpdate.data.subcategory, [otherSubCategoryId]);
+    const categoryUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
+      body: { category: otherCategoryId, subcategory: [], brand: [] },
+    });
+    assert.strictEqual(categoryUpdate.data.category, otherCategoryId);
+    assert.deepStrictEqual(categoryUpdate.data.subcategory, []);
+
+    reset();
+    databaseError = Object.assign(new Error('Internal connection details'), { name: 'MongoNetworkError' });
+    await request('POST', productPath, 503, { body: productBody, message: /Database is unavailable/ });
+    assert.strictEqual(writeCalls, 0);
 
     reset();
     const categorySubPath = `/api/v1/categories/${categoryId}/subcategories`;

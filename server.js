@@ -9,6 +9,8 @@ const categoryRoute = require('./routes/CategoryRoutes');
 const ApiError = require('./utils/apiError');
 const globalError = require('./middlewares/errorMiddleware');
 const subcategoryRoute = require('./routes/subCategoryRoutes');
+const brandRoute = require('./routes/brandroute');
+const productRoute = require('./routes/productRoutes');
 
 
 // express app
@@ -27,6 +29,9 @@ if (process.env.NODE_ENV === 'development') {
 // Mount Routes
 app.use('/api/v1/categories', categoryRoute);
 app.use('/api/v1/subcategories', subcategoryRoute);
+app.use('/api/v1/brands', brandRoute);
+app.use('/api/v1/products', productRoute);
+
 
 
 app.all('/{*splat}', (req, res, next) => {

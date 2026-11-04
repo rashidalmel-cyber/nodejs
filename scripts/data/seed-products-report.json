@@ -1,0 +1,526 @@
+{
+  "completedAt": "2026-11-04T12:30:54.073Z",
+  "source": "https://dummyjson.com/products?limit=0",
+  "verifiedImageUrls": 204,
+  "created": {
+    "categories": 2,
+    "subcategories": 12,
+    "brands": 32,
+    "products": 50
+  },
+  "products": [
+    {
+      "id": "6aeb2546ba66e4580eb17e93",
+      "title": "iPhone 5s",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb2546ba66e4580eb17e94",
+      "title": "iPhone 6",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb2547ba66e4580eb17e95",
+      "title": "iPhone 13 Pro",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb254aba66e4580eb17e96",
+      "title": "iPhone X",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb254bba66e4580eb17e98",
+      "title": "Oppo A57",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Oppo",
+      "brandId": "6aeb254aba66e4580eb17e97"
+    },
+    {
+      "id": "6aeb254bba66e4580eb17e99",
+      "title": "Oppo F19 Pro Plus",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Oppo",
+      "brandId": "6aeb254aba66e4580eb17e97"
+    },
+    {
+      "id": "6aeb254dba66e4580eb17e9a",
+      "title": "Oppo K1",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Oppo",
+      "brandId": "6aeb254aba66e4580eb17e97"
+    },
+    {
+      "id": "6aeb254fba66e4580eb17e9c",
+      "title": "Realme C35",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Realme",
+      "brandId": "6aeb254eba66e4580eb17e9b"
+    },
+    {
+      "id": "6aeb254fba66e4580eb17e9d",
+      "title": "Realme X",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Realme",
+      "brandId": "6aeb254eba66e4580eb17e9b"
+    },
+    {
+      "id": "6aeb2550ba66e4580eb17e9e",
+      "title": "Realme XT",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Realme",
+      "brandId": "6aeb254eba66e4580eb17e9b"
+    },
+    {
+      "id": "6aeb2551ba66e4580eb17e9f",
+      "title": "Samsung Galaxy S7",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Samsung",
+      "brandId": "6aeaefd6f09b797ff9d6738c"
+    },
+    {
+      "id": "6aeb2551ba66e4580eb17ea0",
+      "title": "Samsung Galaxy S8",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Phones",
+      "subcategoryId": "6ae480380a051324895099cc",
+      "brand": "Samsung",
+      "brandId": "6aeaefd6f09b797ff9d6738c"
+    },
+    {
+      "id": "6aeb2552ba66e4580eb17ea2",
+      "title": "Apple MacBook Pro 14 Inch Space Grey",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Laptops",
+      "subcategoryId": "6aeb2551ba66e4580eb17ea1",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb2553ba66e4580eb17ea4",
+      "title": "Asus Zenbook Pro Dual Screen Laptop",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Laptops",
+      "subcategoryId": "6aeb2551ba66e4580eb17ea1",
+      "brand": "Asus",
+      "brandId": "6aeb2552ba66e4580eb17ea3"
+    },
+    {
+      "id": "6aeb2553ba66e4580eb17ea6",
+      "title": "Huawei Matebook X Pro",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Laptops",
+      "subcategoryId": "6aeb2551ba66e4580eb17ea1",
+      "brand": "Huawei",
+      "brandId": "6aeb2553ba66e4580eb17ea5"
+    },
+    {
+      "id": "6aeb2554ba66e4580eb17ea8",
+      "title": "Lenovo Yoga 920",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Laptops",
+      "subcategoryId": "6aeb2551ba66e4580eb17ea1",
+      "brand": "Lenovo",
+      "brandId": "6aeb2554ba66e4580eb17ea7"
+    },
+    {
+      "id": "6aeb2555ba66e4580eb17eaa",
+      "title": "New DELL XPS 13 9300 Laptop",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Laptops",
+      "subcategoryId": "6aeb2551ba66e4580eb17ea1",
+      "brand": "Dell",
+      "brandId": "6aeb2555ba66e4580eb17ea9"
+    },
+    {
+      "id": "6aeb2556ba66e4580eb17eac",
+      "title": "iPad Mini 2021 Starlight",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Tablets",
+      "subcategoryId": "6aeb2555ba66e4580eb17eab",
+      "brand": "Apple",
+      "brandId": "6aeaf15df09b797ff9d67390"
+    },
+    {
+      "id": "6aeb2556ba66e4580eb17ead",
+      "title": "Samsung Galaxy Tab S8 Plus Grey",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Tablets",
+      "subcategoryId": "6aeb2555ba66e4580eb17eab",
+      "brand": "Samsung",
+      "brandId": "6aeaefd6f09b797ff9d6738c"
+    },
+    {
+      "id": "6aeb2556ba66e4580eb17eae",
+      "title": "Samsung Galaxy Tab White",
+      "category": "electronics",
+      "categoryId": "6ad9c93553da05c1533daf6a",
+      "subcategory": "Tablets",
+      "subcategoryId": "6aeb2555ba66e4580eb17eab",
+      "brand": "Samsung",
+      "brandId": "6aeaefd6f09b797ff9d6738c"
+    },
+    {
+      "id": "6aeb255bba66e4580eb17eb2",
+      "title": "Blue & Black Check Shirt",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shirts",
+      "subcategoryId": "6aeb2558ba66e4580eb17eb0",
+      "brand": "Fashion Trends",
+      "brandId": "6aeb2559ba66e4580eb17eb1"
+    },
+    {
+      "id": "6aeb255cba66e4580eb17eb4",
+      "title": "Gigabyte Aorus Men Tshirt",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shirts",
+      "subcategoryId": "6aeb2558ba66e4580eb17eb0",
+      "brand": "Gigabyte",
+      "brandId": "6aeb255cba66e4580eb17eb3"
+    },
+    {
+      "id": "6aeb255eba66e4580eb17eb6",
+      "title": "Man Plaid Shirt",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shirts",
+      "subcategoryId": "6aeb2558ba66e4580eb17eb0",
+      "brand": "Classic Wear",
+      "brandId": "6aeb255dba66e4580eb17eb5"
+    },
+    {
+      "id": "6aeb2561ba66e4580eb17eb8",
+      "title": "Man Short Sleeve Shirt",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shirts",
+      "subcategoryId": "6aeb2558ba66e4580eb17eb0",
+      "brand": "Casual Comfort",
+      "brandId": "6aeb2560ba66e4580eb17eb7"
+    },
+    {
+      "id": "6aeb2562ba66e4580eb17eba",
+      "title": "Men Check Shirt",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shirts",
+      "subcategoryId": "6aeb2558ba66e4580eb17eb0",
+      "brand": "Urban Chic",
+      "brandId": "6aeb2561ba66e4580eb17eb9"
+    },
+    {
+      "id": "6aeb2563ba66e4580eb17ebd",
+      "title": "Nike Air Jordan 1 Red And Black",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shoes",
+      "subcategoryId": "6aeb2562ba66e4580eb17ebb",
+      "brand": "Nike",
+      "brandId": "6aeb2562ba66e4580eb17ebc"
+    },
+    {
+      "id": "6aeb2563ba66e4580eb17ebe",
+      "title": "Nike Baseball Cleats",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shoes",
+      "subcategoryId": "6aeb2562ba66e4580eb17ebb",
+      "brand": "Nike",
+      "brandId": "6aeb2562ba66e4580eb17ebc"
+    },
+    {
+      "id": "6aeb2564ba66e4580eb17ec0",
+      "title": "Puma Future Rider Trainers",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shoes",
+      "subcategoryId": "6aeb2562ba66e4580eb17ebb",
+      "brand": "Puma",
+      "brandId": "6aeb2564ba66e4580eb17ebf"
+    },
+    {
+      "id": "6aeb2565ba66e4580eb17ec2",
+      "title": "Sports Sneakers Off White & Red",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shoes",
+      "subcategoryId": "6aeb2562ba66e4580eb17ebb",
+      "brand": "Off White",
+      "brandId": "6aeb2564ba66e4580eb17ec1"
+    },
+    {
+      "id": "6aeb2565ba66e4580eb17ec3",
+      "title": "Sports Sneakers Off White Red",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Men's Shoes",
+      "subcategoryId": "6aeb2562ba66e4580eb17ebb",
+      "brand": "Off White",
+      "brandId": "6aeb2564ba66e4580eb17ec1"
+    },
+    {
+      "id": "6aeb2566ba66e4580eb17ec6",
+      "title": "Blue Women's Handbag",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Women's Bags",
+      "subcategoryId": "6aeb2566ba66e4580eb17ec4",
+      "brand": "Fashionista",
+      "brandId": "6aeb2566ba66e4580eb17ec5"
+    },
+    {
+      "id": "6aeb2567ba66e4580eb17ec8",
+      "title": "Heshe Women's Leather Bag",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Women's Bags",
+      "subcategoryId": "6aeb2566ba66e4580eb17ec4",
+      "brand": "Heshe",
+      "brandId": "6aeb2567ba66e4580eb17ec7"
+    },
+    {
+      "id": "6aeb2568ba66e4580eb17eca",
+      "title": "Prada Women Bag",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Women's Bags",
+      "subcategoryId": "6aeb2566ba66e4580eb17ec4",
+      "brand": "Prada",
+      "brandId": "6aeb2568ba66e4580eb17ec9"
+    },
+    {
+      "id": "6aeb2568ba66e4580eb17ecb",
+      "title": "White Faux Leather Backpack",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Women's Bags",
+      "subcategoryId": "6aeb2566ba66e4580eb17ec4",
+      "brand": "Urban Chic",
+      "brandId": "6aeb2561ba66e4580eb17eb9"
+    },
+    {
+      "id": "6aeb2569ba66e4580eb17ecd",
+      "title": "Women Handbag Black",
+      "category": "Fashion",
+      "categoryId": "6aeb2557ba66e4580eb17eaf",
+      "subcategory": "Women's Bags",
+      "subcategoryId": "6aeb2566ba66e4580eb17ec4",
+      "brand": "Elegance Collection",
+      "brandId": "6aeb2569ba66e4580eb17ecc"
+    },
+    {
+      "id": "6aeb256bba66e4580eb17ed1",
+      "title": "Essence Mascara Lash Princess",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Makeup",
+      "subcategoryId": "6aeb256aba66e4580eb17ecf",
+      "brand": "Essence",
+      "brandId": "6aeb256aba66e4580eb17ed0"
+    },
+    {
+      "id": "6aeb256bba66e4580eb17ed3",
+      "title": "Eyeshadow Palette with Mirror",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Makeup",
+      "subcategoryId": "6aeb256aba66e4580eb17ecf",
+      "brand": "Glamour Beauty",
+      "brandId": "6aeb256bba66e4580eb17ed2"
+    },
+    {
+      "id": "6aeb256cba66e4580eb17ed5",
+      "title": "Powder Canister",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Makeup",
+      "subcategoryId": "6aeb256aba66e4580eb17ecf",
+      "brand": "Velvet Touch",
+      "brandId": "6aeb256cba66e4580eb17ed4"
+    },
+    {
+      "id": "6aeb256dba66e4580eb17ed7",
+      "title": "Red Lipstick",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Makeup",
+      "subcategoryId": "6aeb256aba66e4580eb17ecf",
+      "brand": "Chic Cosmetics",
+      "brandId": "6aeb256dba66e4580eb17ed6"
+    },
+    {
+      "id": "6aeb256eba66e4580eb17ed9",
+      "title": "Red Nail Polish",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Makeup",
+      "subcategoryId": "6aeb256aba66e4580eb17ecf",
+      "brand": "Nail Couture",
+      "brandId": "6aeb256dba66e4580eb17ed8"
+    },
+    {
+      "id": "6aeb256fba66e4580eb17edc",
+      "title": "Calvin Klein CK One",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Fragrances",
+      "subcategoryId": "6aeb256eba66e4580eb17eda",
+      "brand": "Calvin Klein",
+      "brandId": "6aeb256eba66e4580eb17edb"
+    },
+    {
+      "id": "6aeb2570ba66e4580eb17ede",
+      "title": "Chanel Coco Noir Eau De",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Fragrances",
+      "subcategoryId": "6aeb256eba66e4580eb17eda",
+      "brand": "Chanel",
+      "brandId": "6aeb256fba66e4580eb17edd"
+    },
+    {
+      "id": "6aeb2573ba66e4580eb17ee0",
+      "title": "Dior J'adore",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Fragrances",
+      "subcategoryId": "6aeb256eba66e4580eb17eda",
+      "brand": "Dior",
+      "brandId": "6aeb2572ba66e4580eb17edf"
+    },
+    {
+      "id": "6aeb2575ba66e4580eb17ee2",
+      "title": "Dolce Shine Eau de",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Fragrances",
+      "subcategoryId": "6aeb256eba66e4580eb17eda",
+      "brand": "Dolce & Gabbana",
+      "brandId": "6aeb2574ba66e4580eb17ee1"
+    },
+    {
+      "id": "6aeb2576ba66e4580eb17ee4",
+      "title": "Gucci Bloom Eau de",
+      "category": "Beauty & Personal Care",
+      "categoryId": "6aeb2569ba66e4580eb17ece",
+      "subcategory": "Fragrances",
+      "subcategoryId": "6aeb256eba66e4580eb17eda",
+      "brand": "Gucci",
+      "brandId": "6aeb2575ba66e4580eb17ee3"
+    },
+    {
+      "id": "6aeb2577ba66e4580eb17ee7",
+      "title": "Annibale Colombo Bed",
+      "category": "furniture",
+      "categoryId": "6ad9d62c3ea265203ef3a1d4",
+      "subcategory": "Beds",
+      "subcategoryId": "6aeb2576ba66e4580eb17ee5",
+      "brand": "Annibale Colombo",
+      "brandId": "6aeb2577ba66e4580eb17ee6"
+    },
+    {
+      "id": "6aeb2578ba66e4580eb17ee9",
+      "title": "Annibale Colombo Sofa",
+      "category": "furniture",
+      "categoryId": "6ad9d62c3ea265203ef3a1d4",
+      "subcategory": "Sofas",
+      "subcategoryId": "6aeb2577ba66e4580eb17ee8",
+      "brand": "Annibale Colombo",
+      "brandId": "6aeb2577ba66e4580eb17ee6"
+    },
+    {
+      "id": "6aeb2579ba66e4580eb17eec",
+      "title": "Bedside Table African Cherry",
+      "category": "furniture",
+      "categoryId": "6ad9d62c3ea265203ef3a1d4",
+      "subcategory": "Tables",
+      "subcategoryId": "6aeb2578ba66e4580eb17eea",
+      "brand": "Furniture Co.",
+      "brandId": "6aeb2578ba66e4580eb17eeb"
+    },
+    {
+      "id": "6aeb257aba66e4580eb17eef",
+      "title": "Knoll Saarinen Executive Conference Chair",
+      "category": "furniture",
+      "categoryId": "6ad9d62c3ea265203ef3a1d4",
+      "subcategory": "Chairs",
+      "subcategoryId": "6aeb2579ba66e4580eb17eed",
+      "brand": "Knoll",
+      "brandId": "6aeb257aba66e4580eb17eee"
+    },
+    {
+      "id": "6aeb257bba66e4580eb17ef2",
+      "title": "Wooden Bathroom Sink With Mirror",
+      "category": "furniture",
+      "categoryId": "6ad9d62c3ea265203ef3a1d4",
+      "subcategory": "Bathroom Furniture",
+      "subcategoryId": "6aeb257aba66e4580eb17ef0",
+      "brand": "Bath Trends",
+      "brandId": "6aeb257bba66e4580eb17ef1"
+    }
+  ],
+  "verification": {
+    "verifiedProducts": 50,
+    "totalProducts": 53,
+    "totalCategories": 11,
+    "totalSubcategories": 14,
+    "totalBrands": 34,
+    "categoryCounts": {
+      "electronics": 20,
+      "Fashion": 15,
+      "Beauty & Personal Care": 10,
+      "furniture": 5
+    }
+  }
+}

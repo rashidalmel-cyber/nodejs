@@ -7,7 +7,8 @@ const Product = require('../models/productmodel');
 
 const productFields = [
   'title', 'description', 'quantity', 'price', 'priceAfterDiscount',
-  'colors', 'imageCover', 'images', 'category', 'subcategory', 'brand',
+  'colors', 'imageCover', 'images', 'category', 'subcategories', 'brand',
+  'sold', 'ratingsAverage', 'ratingsQuantity',
 ];
 
 const getProductData = (body) => {
@@ -34,7 +35,17 @@ exports.getProducts = asyncHandler(async (req, res, next) => {
         return next(new ApiError('page and limit must be positive whole numbers within the supported range.', 400));
     }
 
-    const products = await Product.find({}).skip(skip).limit(limit);
+    const filter = {};
+    const searchKeyword = req.query.keyword ? req.query.keyword.trim() : '';
+    if (searchKeyword) {
+        const keyword = searchKeyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        filter.$or = [
+            { title: { $regex: keyword, $options: 'i' } },
+            { description: { $regex: keyword, $options: 'i' } },
+        ];
+    }
+
+    const products = await Product.find(filter).skip(skip).limit(limit);
     res.status(200).json({
         status: 'success',
         message: products.length ? 'Products retrieved successfully.' : 'No products found.',

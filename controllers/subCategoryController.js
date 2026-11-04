@@ -6,6 +6,19 @@ const CategoryModel = require('../models/CategoryModel');
 // استيراد الموديل مع تسميته بحرف كبير لتجنب الالتباس
 const SubCategory = require('../models/SubCategoryModel');
 
+// Nested creates get their parent category from the URL before body validation.
+exports.setCategoryIdToBody = (req, res, next) => {
+    if (req.params.categoryId) {
+        if (!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) req.body = {};
+        if (req.body.category !== undefined
+            && String(req.body.category).toLowerCase() !== req.params.categoryId.toLowerCase()) {
+            return next(new ApiError('category must match the category ID in the URL.', 400));
+        }
+        req.body.category = req.params.categoryId;
+    }
+    return next();
+};
+
 // @desc    Get list of subCategories
 // @route   GET /api/v1/subcategories
 // @route   GET /api/v1/categories/:categoryId/subcategories
@@ -58,13 +71,14 @@ exports.getSubCategory = asyncHandler(async (req, res, next) => {
 
 // @desc    Create subCategory
 // @route   POST /api/v1/subcategories
+// @route   POST /api/v1/categories/:categoryId/subcategories
 // @access  Private
 exports.createSubCategory = asyncHandler(async (req, res, next) => {
-    const { name, categoryId } = req.body;
+    const { name, category: categoryId } = req.body;
 
     const category = await CategoryModel.findById(categoryId);
     if (!category) {
-        return next(new ApiError(`Parent category not found for categoryId: ${categoryId}.`, 404));
+        return next(new ApiError(`Parent category not found for ID: ${categoryId}.`, 404));
     }
     
     // استخدام SubCategory للإنشاء وتخزين النتيجة في متغير مختلف
@@ -84,13 +98,13 @@ exports.createSubCategory = asyncHandler(async (req, res, next) => {
 // @access  Private
 exports.updateSubCategory = asyncHandler(async (req, res, next) => {
     const { id } = req.params;
-    const { name, categoryId } = req.body;
+    const { name, category: categoryId } = req.body;
     const update = { name, slug: slugify(name) };
 
     if (categoryId !== undefined) {
         const category = await CategoryModel.findById(categoryId);
         if (!category) {
-            return next(new ApiError(`Parent category not found for categoryId: ${categoryId}.`, 404));
+            return next(new ApiError(`Parent category not found for ID: ${categoryId}.`, 404));
         }
         update.category = categoryId;
     }

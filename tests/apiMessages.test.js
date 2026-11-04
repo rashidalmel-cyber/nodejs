@@ -34,8 +34,8 @@ const productBody = {
   price: 100,
   imageCover: 'phone.jpg',
   category: categoryId,
-  subcategory: [subCategoryId],
-  brand: [brandId],
+  subcategories: [subCategoryId],
+  brand: brandId,
   colors: ['Black'],
   images: ['phone-back.jpg'],
 };
@@ -105,6 +105,13 @@ function mockModel(Model, records) {
       }
       if (filter.category) {
         matches = matches.filter((record) => String(record.category) === String(filter.category));
+      }
+      if (filter.$or) {
+        matches = matches.filter((record) => filter.$or.some((condition) => (
+          Object.entries(condition).every(([field, value]) => (
+            new RegExp(value.$regex, value.$options).test(record[field] || '')
+          ))
+        )));
       }
       const offset = options.skip || 0;
       matches = matches.slice(offset, options.limit ? offset + options.limit : undefined);
@@ -182,6 +189,12 @@ async function runTests() {
   }
   const missingNameError = await new SubCategory({ category: categoryId }).validate().catch((error) => error);
   assert.ok(missingNameError && missingNameError.errors.name);
+  const minimalProduct = new Product({
+    ...productBody, slug: 'test-phone', subcategories: undefined, brand: undefined,
+  });
+  await minimalProduct.validate();
+  assert.deepStrictEqual(minimalProduct.subcategories.toObject(), []);
+  assert.strictEqual(minimalProduct.brand, undefined);
   const originalMode = process.env.NODE_ENV;
   process.env.NODE_ENV = 'production';
   mockModel(Category, categories);
@@ -234,7 +247,7 @@ async function runTests() {
       { path: '/api/v1/subcategories', id: subCategoryId, duplicate: 'Samsung', name: 'Subcategory' },
       { path: '/api/v1/brands', id: brandId, duplicate: 'Samsung', name: 'Brand' },
     ]) {
-      const validBody = { name: 'New name', categoryId };
+      const validBody = { name: 'New name', category: categoryId };
       for (const method of ['GET', 'PUT', 'DELETE']) {
         for (const invalidId of ['invalid', '123']) {
           reset();
@@ -256,14 +269,14 @@ async function runTests() {
         for (const name of [undefined, '', '   ', 123, [], {}, 'A', 'x'.repeat(33)]) {
           reset();
           const result = await request(method, resource.path + (method === 'PUT' ? `/${resource.id}` : ''), 400, {
-            body: { name, categoryId }, message: /name/,
+            body: { name, category: categoryId }, message: /name/,
           });
           assert.ok(result.errors.some((error) => error.path === 'name'));
           assert.strictEqual(writeCalls, 0);
         }
         reset();
         await request(method, resource.path + (method === 'PUT' ? `/${resource.id}` : ''), 409, {
-          body: { name: resource.duplicate, categoryId }, message: /already exists/,
+          body: { name: resource.duplicate, category: categoryId }, message: /already exists/,
         });
       }
       reset();
@@ -332,15 +345,18 @@ async function runTests() {
       const path = productPath + (method === 'PUT' ? `/${productId}` : '');
       for (const [field, values] of [
         ['title', [null, 123, ' ', 'ab', 'x'.repeat(101)]],
-        ['description', [null, 123, 'Short', ' '.repeat(25)]],
-        ['quantity', [null, -1, 1.5, '5', true, Number.MAX_SAFE_INTEGER + 1]],
-        ['price', [null, -1, '100', true]],
-        ['priceAfterDiscount', [null, -1, '80', 101]],
+        ['description', [null, 123, 'Short', ' '.repeat(25), 'x'.repeat(2001)]],
+        ['quantity', [null, -1, 1.5, 'invalid', true, Number.MAX_SAFE_INTEGER + 1]],
+        ['price', [null, -1, 'invalid', true, 200001]],
+        ['priceAfterDiscount', [null, -1, 'invalid', 100, 101]],
         ['imageCover', [null, 123, ' ']],
         ['category', [null, 123, 'invalid', missingId]],
-        ['subcategory', [null, subCategoryId, [123], ['invalid'], [missingId],
+        ['subcategories', [null, [], subCategoryId, [123], ['invalid'], [missingId],
           [subCategoryId, subCategoryId.toUpperCase()]]],
-        ['brand', [null, brandId, [123], ['invalid'], [missingId], [brandId, brandId]]],
+        ['brand', [null, [], [brandId], 123, 'invalid', missingId]],
+        ['sold', [null, -1, 1.5, true, 'invalid']],
+        ['ratingsAverage', [null, 0, 6, true, 'invalid']],
+        ['ratingsQuantity', [null, -1, 1.5, true, 'invalid']],
         ['colors', [null, 'Black', [123], [' ']]],
         ['images', [null, 'phone.jpg', [123], [' ']]],
       ]) {
@@ -361,7 +377,7 @@ async function runTests() {
       const wrongCategory = await request(method, path, 400, {
         body: { ...productBody, category: otherCategoryId },
       });
-      assert.strictEqual(wrongCategory.errors[0].path, 'subcategory');
+      assert.strictEqual(wrongCategory.errors[0].path, 'subcategories');
       assert.strictEqual(writeCalls, 0);
     }
 
@@ -381,11 +397,35 @@ async function runTests() {
     assert.strictEqual(createdProduct.data.title, 'New phone');
     assert.strictEqual(createdProduct.data.slug, 'new-phone');
     assert.strictEqual(createdProduct.data.price, 100);
-    assert.deepStrictEqual(createdProduct.data.subcategory, [subCategoryId]);
+    assert.deepStrictEqual(createdProduct.data.subcategories, [subCategoryId]);
+    assert.strictEqual(createdProduct.data.brand, brandId);
     const singleProduct = await request('GET', `${productPath}/${createdProduct.data._id}`, 200);
     assert.strictEqual(singleProduct.data.title, 'New phone');
     await request('DELETE', `${productPath}/${createdProduct.data._id}`, 200);
     await request('GET', `${productPath}/${createdProduct.data._id}`, 404);
+
+    reset();
+    const optionalReferences = { ...productBody };
+    delete optionalReferences.subcategories;
+    delete optionalReferences.brand;
+    const withoutReferences = await request('POST', productPath, 201, { body: optionalReferences });
+    assert.deepStrictEqual(withoutReferences.data.subcategories, []);
+    assert.strictEqual(withoutReferences.data.brand, undefined);
+    const numericStrings = await request('POST', productPath, 201, {
+      body: {
+        ...productBody, quantity: '5', price: '100', priceAfterDiscount: '80',
+        sold: '2', ratingsAverage: '4.5', ratingsQuantity: '3',
+      },
+    });
+    assert.strictEqual(numericStrings.data.quantity, 5);
+    assert.strictEqual(numericStrings.data.price, 100);
+    assert.strictEqual(numericStrings.data.priceAfterDiscount, 80);
+    assert.strictEqual(numericStrings.data.sold, 2);
+    assert.strictEqual(numericStrings.data.ratingsAverage, 4.5);
+    assert.strictEqual(numericStrings.data.ratingsQuantity, 3);
+    await request('POST', productPath, 400, {
+      body: { ...productBody, subcategory: [subCategoryId] }, message: /Use subcategories/,
+    });
 
     reset();
     for (const query of ['page=-1', 'limit=1.5', 'page=1&page=2', 'page=1e2', 'limit=0']) {
@@ -395,9 +435,44 @@ async function runTests() {
     assert.strictEqual(productList.results, 1);
     assert.strictEqual(productList.data[0]._id, otherProductId);
 
+    products.get(productId).title = 'Samsung Galaxy S24+';
+    products.get(productId).description = 'An Android smartphone with a bright display.';
+    products.get(otherProductId).title = 'Apple iPhone 15';
+    products.get(otherProductId).description = 'An iOS smartphone with an advanced camera.';
+    const search = async (keyword, suffix = '') => request(
+      'GET', `${productPath}?keyword=${encodeURIComponent(keyword)}${suffix}`, 200,
+    );
+    const titleSearch = await search('  IPHONE  ');
+    assert.deepStrictEqual(titleSearch.data.map((product) => product._id), [otherProductId]);
+    const descriptionSearch = await search('ANDROID');
+    assert.deepStrictEqual(descriptionSearch.data.map((product) => product._id), [productId]);
+    const paginatedSearch = await search('smartphone', '&page=2&limit=1');
+    assert.deepStrictEqual(paginatedSearch.data.map((product) => product._id), [otherProductId]);
+    const filteredPage = await search('iphone', '&page=2&limit=1');
+    assert.strictEqual(filteredPage.results, 0);
+    assert.deepStrictEqual(filteredPage.data, []);
+    const literalSearch = await search('S24+');
+    assert.deepStrictEqual(literalSearch.data.map((product) => product._id), [productId]);
+    for (const keyword of ['does not exist', '.*', '(a+)+$', '[']) {
+      const noMatch = await search(keyword);
+      assert.strictEqual(noMatch.results, 0);
+      assert.deepStrictEqual(noMatch.data, []);
+    }
+    for (const keyword of ['', '   ']) {
+      const allProducts = await search(keyword);
+      assert.strictEqual(allProducts.results, 2);
+    }
+    for (const query of ['keyword=one&keyword=two', `keyword=${'x'.repeat(201)}`]) {
+      const invalidSearch = await request('GET', `${productPath}?${query}`, 400);
+      assert.strictEqual(invalidSearch.errors[0].path, 'keyword');
+    }
+    assert.strictEqual(writeCalls, 0);
+    reset();
+
     const stockUpdate = await request('PUT', `${productPath}/${productId}`, 200, { body: { quantity: 0 } });
     assert.strictEqual(stockUpdate.data.quantity, 0);
     assert.strictEqual(stockUpdate.data.title, productBody.title);
+    assert.deepStrictEqual(stockUpdate.data.subcategories, [subCategoryId]);
     const priceUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
       body: { price: 200, priceAfterDiscount: 180 },
     });
@@ -408,14 +483,19 @@ async function runTests() {
       assert.strictEqual(writeCalls, previousWrites);
     }
     const subcategoryUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
-      body: { subcategory: [otherSubCategoryId] },
+      body: { subcategories: [otherSubCategoryId] },
     });
-    assert.deepStrictEqual(subcategoryUpdate.data.subcategory, [otherSubCategoryId]);
+    assert.deepStrictEqual(subcategoryUpdate.data.subcategories, [otherSubCategoryId]);
+    const destinationSubcategoryId = '507f1f77bcf86cd799439023';
+    subCategories.set(destinationSubcategoryId, {
+      _id: destinationSubcategoryId, name: 'Fiction', slug: 'fiction', category: otherCategoryId,
+    });
     const categoryUpdate = await request('PUT', `${productPath}/${productId}`, 200, {
-      body: { category: otherCategoryId, subcategory: [], brand: [] },
+      body: { category: otherCategoryId, subcategories: [destinationSubcategoryId], brand: otherBrandId },
     });
     assert.strictEqual(categoryUpdate.data.category, otherCategoryId);
-    assert.deepStrictEqual(categoryUpdate.data.subcategory, []);
+    assert.deepStrictEqual(categoryUpdate.data.subcategories, [destinationSubcategoryId]);
+    assert.strictEqual(categoryUpdate.data.brand, otherBrandId);
 
     reset();
     databaseError = Object.assign(new Error('Internal connection details'), { name: 'MongoNetworkError' });
@@ -466,24 +546,48 @@ async function runTests() {
     await request('GET', `/api/v1/categories/${missingId}/subcategories`, 404, { message: /Category not found/ });
     assert.strictEqual(writeCalls, 0);
 
+    reset();
+    const nestedCreated = await request('POST', categorySubPath, 201, { body: { name: 'Nested phones' } });
+    assert.deepStrictEqual(nestedCreated.data.category, { _id: categoryId, name: 'Phones' });
+    assert.strictEqual(subCategories.get(nestedCreated.data._id).category, categoryId);
+    const explicitParent = await request('POST', categorySubPath, 201, {
+      body: { name: 'Explicit parent', category: categoryId.toUpperCase() },
+    });
+    assert.strictEqual(explicitParent.data.category._id, categoryId);
+    const nestedWrites = writeCalls;
+    await request('POST', categorySubPath, 400, {
+      body: { name: 'Wrong parent', category: otherCategoryId }, message: /must match/,
+    });
+    const invalidNestedParent = await request('POST', '/api/v1/categories/invalid/subcategories', 400, {
+      body: { name: 'Invalid parent' }, message: /Invalid category ID/,
+    });
+    assert.strictEqual(invalidNestedParent.errors[0].path, 'categoryId');
+    await request('POST', `/api/v1/categories/${missingId}/subcategories`, 404, {
+      body: { name: 'Missing parent' }, message: /Parent category not found/,
+    });
+    await request('POST', categorySubPath, 400, { body: { name: ' ' }, message: /name/ });
+    await request('POST', categorySubPath, 400, { message: /name/ });
+    assert.strictEqual(writeCalls, nestedWrites);
+
+    reset();
     const subPath = '/api/v1/subcategories';
     for (const method of ['POST', 'PUT']) {
       const path = subPath + (method === 'PUT' ? `/${subCategoryId}` : '');
       for (const value of ['', null, 123, [], [categoryId], {}, 'invalid']) {
         reset();
-        await request(method, path, 400, { body: { name: 'New phone', categoryId: value }, message: /categoryId/ });
+        await request(method, path, 400, { body: { name: 'New phone', category: value }, message: /category/ });
         assert.strictEqual(writeCalls, 0);
       }
       reset();
       await request(method, path, 404, {
-        body: { name: 'New phone', categoryId: missingId }, message: /Parent category not found/,
+        body: { name: 'New phone', category: missingId }, message: /Parent category not found/,
       });
       assert.strictEqual(writeCalls, 0);
     }
     reset();
-    await request('POST', subPath, 400, { body: { name: 'Nokia' }, message: /categoryId is required/ });
+    await request('POST', subPath, 400, { body: { name: 'Nokia' }, message: /category is required/ });
     const moved = await request('PUT', `${subPath}/${subCategoryId}`, 200, {
-      body: { name: 'Moved phone', categoryId: otherCategoryId },
+      body: { name: 'Moved phone', category: otherCategoryId },
     });
     assert.deepStrictEqual(moved.data.category, { _id: otherCategoryId, name: 'Books' });
     assert.strictEqual(subCategories.get(subCategoryId).category, otherCategoryId);

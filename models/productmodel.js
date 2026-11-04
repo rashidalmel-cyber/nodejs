@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: [true, 'Product description is required'],
             minlength: [20, 'Too short product description'],
+            maxlength: [2000, 'Too long product description'],
         },
         quantity: {
             type: Number,
@@ -31,11 +32,13 @@ const productSchema = new mongoose.Schema(
         sold: {
             type: Number,
             default: 0,
+            min: [0, 'Sold quantity cannot be negative'],
         },
         price: {
             type: Number,
             required: [true, 'Product price is required'],
             min: [0, 'Product price cannot be negative'],
+            max: [200000, 'Too long product price'],
         },
         priceAfterDiscount: {
             type: Number,
@@ -53,14 +56,14 @@ const productSchema = new mongoose.Schema(
             ref: 'Category',
             required: [true, 'product must belong to category'],
         },
-        subcategory: [{
+        subcategories: [{
             type: mongoose.Schema.ObjectId,
             ref: 'SubCategory',
         }],
-        brand: [{
+        brand: {
             type: mongoose.Schema.ObjectId,
             ref: 'Brand',
-        }],
+        },
         ratingsAverage: {
             type: Number,
             min: [1, 'Rating  must be over or equal 1.0'],
@@ -69,6 +72,7 @@ const productSchema = new mongoose.Schema(
         ratingsQuantity:{
             type: Number,
              default: 0,
+             min: [0, 'Ratings quantity cannot be negative'],
         },
 
 

@@ -19,18 +19,18 @@ const subCategoryIdValidator = () => param('id')
   .isMongoId()
   .withMessage('Invalid subcategory ID. Expected 24 hexadecimal characters.');
 
-const parentCategoryValidator = () => body('categoryId')
+const parentCategoryValidator = () => body('category')
   .exists()
-  .withMessage('categoryId is required.')
+  .withMessage('category is required.')
   .bail()
   .isString()
-  .withMessage('categoryId must be a string.')
+  .withMessage('category must be a string.')
   .bail()
   .notEmpty()
-  .withMessage('categoryId is required.')
+  .withMessage('category is required.')
   .bail()
   .isMongoId()
-  .withMessage('Invalid categoryId. Expected 24 hexadecimal characters.');
+  .withMessage('Invalid category. Expected 24 hexadecimal characters.');
 
 exports.getSubCategoryValidator = [
   subCategoryIdValidator(),

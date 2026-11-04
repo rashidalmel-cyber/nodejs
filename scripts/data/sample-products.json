@@ -1,0 +1,1159 @@
+{
+  "source": "https://dummyjson.com/products?limit=0",
+  "catalogue": [
+    {
+      "sourceId": 121,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Apple",
+      "data": {
+        "title": "iPhone 5s",
+        "slug": "iphone-5s",
+        "description": "The iPhone 5s is a classic smartphone known for its compact design and advanced features during its release. While it's an older model, it still provides a reliable user experience.",
+        "quantity": 25,
+        "price": 199.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-5s/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 174.17
+      }
+    },
+    {
+      "sourceId": 122,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Apple",
+      "data": {
+        "title": "iPhone 6",
+        "slug": "iphone-6",
+        "description": "The iPhone 6 is a stylish and capable smartphone with a larger display and improved performance. It introduced new features and design elements, making it a popular choice in its time.",
+        "quantity": 60,
+        "price": 299.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-6/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 279.92
+      }
+    },
+    {
+      "sourceId": 123,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Apple",
+      "data": {
+        "title": "iPhone 13 Pro",
+        "slug": "iphone-13-pro",
+        "description": "The iPhone 13 Pro is a cutting-edge smartphone with a powerful camera system, high-performance chip, and stunning display. It offers advanced features for users who demand top-notch technology.",
+        "quantity": 56,
+        "price": 1099.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-13-pro/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 996.92
+      }
+    },
+    {
+      "sourceId": 124,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Apple",
+      "data": {
+        "title": "iPhone X",
+        "slug": "iphone-x",
+        "description": "The iPhone X is a flagship smartphone featuring a bezel-less OLED display, facial recognition technology (Face ID), and impressive performance. It represents a milestone in iPhone design and innovation.",
+        "quantity": 37,
+        "price": 899.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/iphone-x/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 723.68
+      }
+    },
+    {
+      "sourceId": 125,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Oppo",
+      "data": {
+        "title": "Oppo A57",
+        "slug": "oppo-a57",
+        "description": "The Oppo A57 is a mid-range smartphone known for its sleek design and capable features. It offers a balance of performance and affordability, making it a popular choice.",
+        "quantity": 19,
+        "price": 249.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-a57/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 243.92
+      }
+    },
+    {
+      "sourceId": 126,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Oppo",
+      "data": {
+        "title": "Oppo F19 Pro Plus",
+        "slug": "oppo-f19-pro-plus",
+        "description": "The Oppo F19 Pro Plus is a feature-rich smartphone with a focus on camera capabilities. It boasts advanced photography features and a powerful performance for a premium user experience.",
+        "quantity": 78,
+        "price": 399.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-f19-pro-plus/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 325.43
+      }
+    },
+    {
+      "sourceId": 127,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Oppo",
+      "data": {
+        "title": "Oppo K1",
+        "slug": "oppo-k1",
+        "description": "The Oppo K1 series offers a range of smartphones with various features and specifications. Known for their stylish design and reliable performance, the Oppo K1 series caters to diverse user preferences.",
+        "quantity": 55,
+        "price": 299.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/3.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/oppo-k1/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 245.12
+      }
+    },
+    {
+      "sourceId": 128,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Realme",
+      "data": {
+        "title": "Realme C35",
+        "slug": "realme-c35",
+        "description": "The Realme C35 is a budget-friendly smartphone with a focus on providing essential features for everyday use. It offers a reliable performance and user-friendly experience.",
+        "quantity": 48,
+        "price": 149.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-c35/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 127.04
+      }
+    },
+    {
+      "sourceId": 129,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Realme",
+      "data": {
+        "title": "Realme X",
+        "slug": "realme-x",
+        "description": "The Realme X is a mid-range smartphone known for its sleek design and impressive display. It offers a good balance of performance and camera capabilities for users seeking a quality device.",
+        "quantity": 12,
+        "price": 299.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/realme-x/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-x/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-x/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-x/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 279.14
+      }
+    },
+    {
+      "sourceId": 130,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Realme",
+      "data": {
+        "title": "Realme XT",
+        "slug": "realme-xt",
+        "description": "The Realme XT is a feature-rich smartphone with a focus on camera technology. It comes equipped with advanced camera sensors, delivering high-quality photos and videos for photography enthusiasts.",
+        "quantity": 80,
+        "price": 349.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/realme-xt/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 309.71
+      }
+    },
+    {
+      "sourceId": 131,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Samsung",
+      "data": {
+        "title": "Samsung Galaxy S7",
+        "slug": "samsung-galaxy-s7",
+        "description": "The Samsung Galaxy S7 is a flagship smartphone known for its sleek design and advanced features. It features a high-resolution display, powerful camera, and robust performance.",
+        "quantity": 67,
+        "price": 299.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s7/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 241.34
+      }
+    },
+    {
+      "sourceId": 132,
+      "category": "electronics",
+      "subcategory": "Phones",
+      "brand": "Samsung",
+      "data": {
+        "title": "Samsung Galaxy S8",
+        "slug": "samsung-galaxy-s8",
+        "description": "The Samsung Galaxy S8 is a premium smartphone with an Infinity Display, offering a stunning visual experience. It boasts advanced camera capabilities and cutting-edge technology.",
+        "quantity": 1,
+        "price": 499.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/1.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/2.webp",
+          "https://cdn.dummyjson.com/product-images/smartphones/samsung-galaxy-s8/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 402.74
+      }
+    },
+    {
+      "sourceId": 78,
+      "category": "electronics",
+      "subcategory": "Laptops",
+      "brand": "Apple",
+      "data": {
+        "title": "Apple MacBook Pro 14 Inch Space Grey",
+        "slug": "apple-macbook-pro-14-inch-space-grey",
+        "description": "The MacBook Pro 14 Inch in Space Grey is a powerful and sleek laptop, featuring Apple's M1 Pro chip for exceptional performance and a stunning Retina display.",
+        "quantity": 24,
+        "price": 1999.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/1.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/2.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/apple-macbook-pro-14-inch-space-grey/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1906.19
+      }
+    },
+    {
+      "sourceId": 79,
+      "category": "electronics",
+      "subcategory": "Laptops",
+      "brand": "Asus",
+      "data": {
+        "title": "Asus Zenbook Pro Dual Screen Laptop",
+        "slug": "asus-zenbook-pro-dual-screen-laptop",
+        "description": "The Asus Zenbook Pro Dual Screen Laptop is a high-performance device with dual screens, providing productivity and versatility for creative professionals.",
+        "quantity": 45,
+        "price": 1799.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/2.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1599.47
+      }
+    },
+    {
+      "sourceId": 80,
+      "category": "electronics",
+      "subcategory": "Laptops",
+      "brand": "Huawei",
+      "data": {
+        "title": "Huawei Matebook X Pro",
+        "slug": "huawei-matebook-x-pro",
+        "description": "The Huawei Matebook X Pro is a slim and stylish laptop with a high-resolution touchscreen display, offering a premium experience for users on the go.",
+        "quantity": 75,
+        "price": 1399.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/1.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/2.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/huawei-matebook-x-pro/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1268.67
+      }
+    },
+    {
+      "sourceId": 81,
+      "category": "electronics",
+      "subcategory": "Laptops",
+      "brand": "Lenovo",
+      "data": {
+        "title": "Lenovo Yoga 920",
+        "slug": "lenovo-yoga-920",
+        "description": "The Lenovo Yoga 920 is a 2-in-1 convertible laptop with a flexible hinge, allowing you to use it as a laptop or tablet, offering versatility and portability.",
+        "quantity": 40,
+        "price": 1099.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/1.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/2.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/lenovo-yoga-920/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1027.94
+      }
+    },
+    {
+      "sourceId": 82,
+      "category": "electronics",
+      "subcategory": "Laptops",
+      "brand": "Dell",
+      "data": {
+        "title": "New DELL XPS 13 9300 Laptop",
+        "slug": "new-dell-xps-13-9300-laptop",
+        "description": "The New DELL XPS 13 9300 Laptop is a compact and powerful device, featuring a virtually borderless InfinityEdge display and high-end performance for various tasks.",
+        "quantity": 74,
+        "price": 1499.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/1.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/2.webp",
+          "https://cdn.dummyjson.com/product-images/laptops/new-dell-xps-13-9300-laptop/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1321.64
+      }
+    },
+    {
+      "sourceId": 159,
+      "category": "electronics",
+      "subcategory": "Tablets",
+      "brand": "Apple",
+      "data": {
+        "title": "iPad Mini 2021 Starlight",
+        "slug": "ipad-mini-2021-starlight",
+        "description": "The iPad Mini 2021 in Starlight is a compact and powerful tablet from Apple. Featuring a stunning Retina display, powerful A-series chip, and a sleek design, it offers a premium tablet experience.",
+        "quantity": 47,
+        "price": 499.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/1.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/2.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/3.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/ipad-mini-2021-starlight/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 481.79
+      }
+    },
+    {
+      "sourceId": 160,
+      "category": "electronics",
+      "subcategory": "Tablets",
+      "brand": "Samsung",
+      "data": {
+        "title": "Samsung Galaxy Tab S8 Plus Grey",
+        "slug": "samsung-galaxy-tab-s8-plus-grey",
+        "description": "The Samsung Galaxy Tab S8 Plus in Grey is a high-performance Android tablet by Samsung. With a large AMOLED display, powerful processor, and S Pen support, it's ideal for productivity and entertainment.",
+        "quantity": 62,
+        "price": 599.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/1.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/2.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/3.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-s8-plus-grey/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 520.13
+      }
+    },
+    {
+      "sourceId": 161,
+      "category": "electronics",
+      "subcategory": "Tablets",
+      "brand": "Samsung",
+      "data": {
+        "title": "Samsung Galaxy Tab White",
+        "slug": "samsung-galaxy-tab-white",
+        "description": "The Samsung Galaxy Tab in White is a sleek and versatile Android tablet. With a vibrant display, long-lasting battery, and a range of features, it offers a great user experience for various tasks.",
+        "quantity": 92,
+        "price": 349.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/1.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/2.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/3.webp",
+          "https://cdn.dummyjson.com/product-images/tablets/samsung-galaxy-tab-white/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 286.29
+      }
+    },
+    {
+      "sourceId": 83,
+      "category": "Fashion",
+      "subcategory": "Men's Shirts",
+      "brand": "Fashion Trends",
+      "data": {
+        "title": "Blue & Black Check Shirt",
+        "slug": "blue-and-black-check-shirt",
+        "description": "The Blue & Black Check Shirt is a stylish and comfortable men's shirt featuring a classic check pattern. Made from high-quality fabric, it's suitable for both casual and semi-formal occasions.",
+        "quantity": 38,
+        "price": 29.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/blue-&-black-check-shirt/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 25.39
+      }
+    },
+    {
+      "sourceId": 84,
+      "category": "Fashion",
+      "subcategory": "Men's Shirts",
+      "brand": "Gigabyte",
+      "data": {
+        "title": "Gigabyte Aorus Men Tshirt",
+        "slug": "gigabyte-aorus-men-tshirt",
+        "description": "The Gigabyte Aorus Men Tshirt is a cool and casual shirt for gaming enthusiasts. With the Aorus logo and sleek design, it's perfect for expressing your gaming style.",
+        "quantity": 90,
+        "price": 24.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/gigabyte-aorus-men-tshirt/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 24.76
+      }
+    },
+    {
+      "sourceId": 85,
+      "category": "Fashion",
+      "subcategory": "Men's Shirts",
+      "brand": "Classic Wear",
+      "data": {
+        "title": "Man Plaid Shirt",
+        "slug": "man-plaid-shirt",
+        "description": "The Man Plaid Shirt is a timeless and versatile men's shirt with a classic plaid pattern. Its comfortable fit and casual style make it a wardrobe essential for various occasions.",
+        "quantity": 82,
+        "price": 34.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-plaid-shirt/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 28.17
+      }
+    },
+    {
+      "sourceId": 86,
+      "category": "Fashion",
+      "subcategory": "Men's Shirts",
+      "brand": "Casual Comfort",
+      "data": {
+        "title": "Man Short Sleeve Shirt",
+        "slug": "man-short-sleeve-shirt",
+        "description": "The Man Short Sleeve Shirt is a breezy and stylish option for warm days. With a comfortable fit and short sleeves, it's perfect for a laid-back yet polished look.",
+        "quantity": 2,
+        "price": 19.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/man-short-sleeve-shirt/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 18.62
+      }
+    },
+    {
+      "sourceId": 87,
+      "category": "Fashion",
+      "subcategory": "Men's Shirts",
+      "brand": "Urban Chic",
+      "data": {
+        "title": "Men Check Shirt",
+        "slug": "men-check-shirt",
+        "description": "The Men Check Shirt is a classic and versatile shirt featuring a stylish check pattern. Suitable for various occasions, it adds a smart and polished touch to your wardrobe.",
+        "quantity": 95,
+        "price": 27.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shirts/men-check-shirt/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 24.8
+      }
+    },
+    {
+      "sourceId": 88,
+      "category": "Fashion",
+      "subcategory": "Men's Shoes",
+      "brand": "Nike",
+      "data": {
+        "title": "Nike Air Jordan 1 Red And Black",
+        "slug": "nike-air-jordan-1-red-and-black",
+        "description": "The Nike Air Jordan 1 in Red and Black is an iconic basketball sneaker known for its stylish design and high-performance features, making it a favorite among sneaker enthusiasts and athletes.",
+        "quantity": 7,
+        "price": 149.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-air-jordan-1-red-and-black/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 143.81
+      }
+    },
+    {
+      "sourceId": 89,
+      "category": "Fashion",
+      "subcategory": "Men's Shoes",
+      "brand": "Nike",
+      "data": {
+        "title": "Nike Baseball Cleats",
+        "slug": "nike-baseball-cleats",
+        "description": "Nike Baseball Cleats are designed for maximum traction and performance on the baseball field. They provide stability and support for players during games and practices.",
+        "quantity": 12,
+        "price": 79.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/nike-baseball-cleats/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 65.56
+      }
+    },
+    {
+      "sourceId": 90,
+      "category": "Fashion",
+      "subcategory": "Men's Shoes",
+      "brand": "Puma",
+      "data": {
+        "title": "Puma Future Rider Trainers",
+        "slug": "puma-future-rider-trainers",
+        "description": "The Puma Future Rider Trainers offer a blend of retro style and modern comfort. Perfect for casual wear, these trainers provide a fashionable and comfortable option for everyday use.",
+        "quantity": 90,
+        "price": 89.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/puma-future-rider-trainers/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 86.21
+      }
+    },
+    {
+      "sourceId": 91,
+      "category": "Fashion",
+      "subcategory": "Men's Shoes",
+      "brand": "Off White",
+      "data": {
+        "title": "Sports Sneakers Off White & Red",
+        "slug": "sports-sneakers-off-white-and-red",
+        "description": "The Sports Sneakers in Off White and Red combine style and functionality, making them a fashionable choice for sports enthusiasts. The red and off-white color combination adds a bold and energetic touch.",
+        "quantity": 17,
+        "price": 119.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-&-red/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 114.03
+      }
+    },
+    {
+      "sourceId": 92,
+      "category": "Fashion",
+      "subcategory": "Men's Shoes",
+      "brand": "Off White",
+      "data": {
+        "title": "Sports Sneakers Off White Red",
+        "slug": "sports-sneakers-off-white-red",
+        "description": "Another variant of the Sports Sneakers in Off White Red, featuring a unique design. These sneakers offer style and comfort for casual occasions.",
+        "quantity": 62,
+        "price": 109.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/1.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/2.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/3.webp",
+          "https://cdn.dummyjson.com/product-images/mens-shoes/sports-sneakers-off-white-red/4.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 109.95
+      }
+    },
+    {
+      "sourceId": 172,
+      "category": "Fashion",
+      "subcategory": "Women's Bags",
+      "brand": "Fashionista",
+      "data": {
+        "title": "Blue Women's Handbag",
+        "slug": "blue-women's-handbag",
+        "description": "The Blue Women's Handbag is a stylish and spacious accessory for everyday use. With a vibrant blue color and multiple compartments, it combines fashion and functionality.",
+        "quantity": 76,
+        "price": 49.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/blue-women's-handbag/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 41.05
+      }
+    },
+    {
+      "sourceId": 173,
+      "category": "Fashion",
+      "subcategory": "Women's Bags",
+      "brand": "Heshe",
+      "data": {
+        "title": "Heshe Women's Leather Bag",
+        "slug": "heshe-women's-leather-bag",
+        "description": "The Heshe Women's Leather Bag is a luxurious and high-quality leather bag for the sophisticated woman. With a timeless design and durable craftsmanship, it's a versatile accessory.",
+        "quantity": 99,
+        "price": 129.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/heshe-women's-leather-bag/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 124.96
+      }
+    },
+    {
+      "sourceId": 174,
+      "category": "Fashion",
+      "subcategory": "Women's Bags",
+      "brand": "Prada",
+      "data": {
+        "title": "Prada Women Bag",
+        "slug": "prada-women-bag",
+        "description": "The Prada Women Bag is an iconic designer bag that exudes elegance and luxury. Crafted with precision and featuring the Prada logo, it's a statement piece for fashion enthusiasts.",
+        "quantity": 75,
+        "price": 599.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/prada-women-bag/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 515.45
+      }
+    },
+    {
+      "sourceId": 175,
+      "category": "Fashion",
+      "subcategory": "Women's Bags",
+      "brand": "Urban Chic",
+      "data": {
+        "title": "White Faux Leather Backpack",
+        "slug": "white-faux-leather-backpack",
+        "description": "The White Faux Leather Backpack is a trendy and practical backpack for the modern woman. With a sleek white design and ample storage space, it's perfect for both casual and on-the-go styles.",
+        "quantity": 39,
+        "price": 39.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/white-faux-leather-backpack/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 33.91
+      }
+    },
+    {
+      "sourceId": 176,
+      "category": "Fashion",
+      "subcategory": "Women's Bags",
+      "brand": "Elegance Collection",
+      "data": {
+        "title": "Women Handbag Black",
+        "slug": "women-handbag-black",
+        "description": "The Women Handbag in Black is a classic and versatile accessory that complements various outfits. With a timeless black color and functional design, it's a must-have in every woman's wardrobe.",
+        "quantity": 11,
+        "price": 59.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/1.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/2.webp",
+          "https://cdn.dummyjson.com/product-images/womens-bags/women-handbag-black/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 53.01
+      }
+    },
+    {
+      "sourceId": 1,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Makeup",
+      "brand": "Essence",
+      "data": {
+        "title": "Essence Mascara Lash Princess",
+        "slug": "essence-mascara-lash-princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "quantity": 99,
+        "price": 9.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 8.94
+      }
+    },
+    {
+      "sourceId": 2,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Makeup",
+      "brand": "Glamour Beauty",
+      "data": {
+        "title": "Eyeshadow Palette with Mirror",
+        "slug": "eyeshadow-palette-with-mirror",
+        "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+        "quantity": 34,
+        "price": 19.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 16.35
+      }
+    },
+    {
+      "sourceId": 3,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Makeup",
+      "brand": "Velvet Touch",
+      "data": {
+        "title": "Powder Canister",
+        "slug": "powder-canister",
+        "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+        "quantity": 89,
+        "price": 14.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 13.51
+      }
+    },
+    {
+      "sourceId": 4,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Makeup",
+      "brand": "Chic Cosmetics",
+      "data": {
+        "title": "Red Lipstick",
+        "slug": "red-lipstick",
+        "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+        "quantity": 91,
+        "price": 12.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 11.41
+      }
+    },
+    {
+      "sourceId": 5,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Makeup",
+      "brand": "Nail Couture",
+      "data": {
+        "title": "Red Nail Polish",
+        "slug": "red-nail-polish",
+        "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+        "quantity": 79,
+        "price": 8.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 7.96
+      }
+    },
+    {
+      "sourceId": 6,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "brand": "Calvin Klein",
+      "data": {
+        "title": "Calvin Klein CK One",
+        "slug": "calvin-klein-ck-one",
+        "description": "CK One by Calvin Klein is a classic unisex fragrance, known for its fresh and clean scent. It's a versatile fragrance suitable for everyday wear.",
+        "quantity": 29,
+        "price": 49.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/1.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/2.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/calvin-klein-ck-one/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 49.05
+      }
+    },
+    {
+      "sourceId": 7,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "brand": "Chanel",
+      "data": {
+        "title": "Chanel Coco Noir Eau De",
+        "slug": "chanel-coco-noir-eau-de",
+        "description": "Coco Noir by Chanel is an elegant and mysterious fragrance, featuring notes of grapefruit, rose, and sandalwood. Perfect for evening occasions.",
+        "quantity": 58,
+        "price": 129.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/1.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/2.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/chanel-coco-noir-eau-de/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 108.53
+      }
+    },
+    {
+      "sourceId": 8,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "brand": "Dior",
+      "data": {
+        "title": "Dior J'adore",
+        "slug": "dior-j'adore",
+        "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+        "quantity": 98,
+        "price": 89.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/1.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/2.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/dior-j'adore/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 76.74
+      }
+    },
+    {
+      "sourceId": 9,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "brand": "Dolce & Gabbana",
+      "data": {
+        "title": "Dolce Shine Eau de",
+        "slug": "dolce-shine-eau-de",
+        "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+        "quantity": 4,
+        "price": 69.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/1.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/2.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/dolce-shine-eau-de/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 69.56
+      }
+    },
+    {
+      "sourceId": 10,
+      "category": "Beauty & Personal Care",
+      "subcategory": "Fragrances",
+      "brand": "Gucci",
+      "data": {
+        "title": "Gucci Bloom Eau de",
+        "slug": "gucci-bloom-eau-de",
+        "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+        "quantity": 91,
+        "price": 79.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/1.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/2.webp",
+          "https://cdn.dummyjson.com/product-images/fragrances/gucci-bloom-eau-de/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 68.48
+      }
+    },
+    {
+      "sourceId": 11,
+      "category": "furniture",
+      "subcategory": "Beds",
+      "brand": "Annibale Colombo",
+      "data": {
+        "title": "Annibale Colombo Bed",
+        "slug": "annibale-colombo-bed",
+        "description": "The Annibale Colombo Bed is a luxurious and elegant bed frame, crafted with high-quality materials for a comfortable and stylish bedroom.",
+        "quantity": 88,
+        "price": 1899.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/2.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 1737.16
+      }
+    },
+    {
+      "sourceId": 12,
+      "category": "furniture",
+      "subcategory": "Sofas",
+      "brand": "Annibale Colombo",
+      "data": {
+        "title": "Annibale Colombo Sofa",
+        "slug": "annibale-colombo-sofa",
+        "description": "The Annibale Colombo Sofa is a sophisticated and comfortable seating option, featuring exquisite design and premium upholstery for your living room.",
+        "quantity": 60,
+        "price": 2499.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/2.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 2139.99
+      }
+    },
+    {
+      "sourceId": 13,
+      "category": "furniture",
+      "subcategory": "Tables",
+      "brand": "Furniture Co.",
+      "data": {
+        "title": "Bedside Table African Cherry",
+        "slug": "bedside-table-african-cherry",
+        "description": "The Bedside Table in African Cherry is a stylish and functional addition to your bedroom, providing convenient storage space and a touch of elegance.",
+        "quantity": 64,
+        "price": 299.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/2.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 242.72
+      }
+    },
+    {
+      "sourceId": 14,
+      "category": "furniture",
+      "subcategory": "Chairs",
+      "brand": "Knoll",
+      "data": {
+        "title": "Knoll Saarinen Executive Conference Chair",
+        "slug": "knoll-saarinen-executive-conference-chair",
+        "description": "The Knoll Saarinen Executive Conference Chair is a modern and ergonomic chair, perfect for your office or conference room with its timeless design.",
+        "quantity": 26,
+        "price": 499.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/1.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/2.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/knoll-saarinen-executive-conference-chair/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 489.94
+      }
+    },
+    {
+      "sourceId": 15,
+      "category": "furniture",
+      "subcategory": "Bathroom Furniture",
+      "brand": "Bath Trends",
+      "data": {
+        "title": "Wooden Bathroom Sink With Mirror",
+        "slug": "wooden-bathroom-sink-with-mirror",
+        "description": "The Wooden Bathroom Sink with Mirror is a unique and stylish addition to your bathroom, featuring a wooden sink countertop and a matching mirror.",
+        "quantity": 7,
+        "price": 799.99,
+        "imageCover": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/thumbnail.webp",
+        "images": [
+          "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/2.webp",
+          "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/3.webp"
+        ],
+        "colors": [],
+        "sold": 0,
+        "ratingsQuantity": 0,
+        "priceAfterDiscount": 729.59
+      }
+    }
+  ]
+}

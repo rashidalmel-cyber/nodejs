@@ -1,46 +1,19 @@
-const { body, param } = require('express-validator');
+const { nameValidator, idValidator } = require('./commonValidators');
 const validatorMiddleware = require('../../middlewares/validatorMiddleware');
 
-const categoryNameValidator = () => body('name')
-  .exists()
-  .withMessage('Category name is required.')
-  .bail()
-  .isString()
-  .withMessage('Category name must be a string.')
-  .bail()
-  .trim()
-  .notEmpty()
-  .withMessage('Category name is required.')
-  .bail()
-  .isLength({ min: 3, max: 32 })
-  .withMessage('Category name must contain between 3 and 32 characters.');
-
-const categoryIdValidator = (field = 'id') => param(field)
-  .isMongoId()
-  .withMessage('Invalid category ID. Expected 24 hexadecimal characters.');
-
-exports.getCategoryValidator = [
-  categoryIdValidator(),
-  validatorMiddleware,
-];
+exports.getCategoryValidator = [idValidator('category'), validatorMiddleware];
 
 exports.getCategorySubCategoriesValidator = [
-  categoryIdValidator('categoryId'),
+  idValidator('category', 'categoryId'),
   validatorMiddleware,
 ];
 
-exports.createCategoryValidator = [
-  categoryNameValidator(),
-  validatorMiddleware,
-];
+exports.createCategoryValidator = [nameValidator('Category'), validatorMiddleware];
 
 exports.updateCategoryValidator = [
-  categoryIdValidator(),
-  categoryNameValidator(),
+  idValidator('category'),
+  nameValidator('Category'),
   validatorMiddleware,
 ];
 
-exports.deleteCategoryValidator = [
-  categoryIdValidator(),
-  validatorMiddleware,
-];
+exports.deleteCategoryValidator = [idValidator('category'), validatorMiddleware];

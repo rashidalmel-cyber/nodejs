@@ -1,5 +1,6 @@
-const { body, param, query } = require('express-validator');
+const { body, query } = require('express-validator');
 const asyncHandler = require('express-async-handler');
+const { idValidator } = require('./commonValidators');
 const validatorMiddleware = require('../../middlewares/validatorMiddleware');
 const ApiError = require('../apiError');
 const Product = require('../../models/productmodel');
@@ -7,9 +8,7 @@ const Category = require('../../models/CategoryModel');
 const SubCategory = require('../../models/SubCategoryModel');
 const Brand = require('../../models/BrandModel');
 
-const productIdValidator = () => param('id')
-  .isMongoId()
-  .withMessage('Invalid product ID. Expected 24 hexadecimal characters.');
+const productIdValidator = () => idValidator('product');
 
 const stringValidator = (field, label, min, max) => body(field)
   .exists().withMessage(`${label} is required.`).bail()
@@ -25,6 +24,8 @@ const numberValidator = (field, label, integer = false) => body(field)
   .custom((value) => typeof value === 'number' || typeof value === 'string')
   .withMessage(`${label} must be a number.`).bail()
   .isFloat({ min: 0 }).withMessage(`${label} must be a nonnegative finite number.`).bail()
+  .custom((value) => Number.isFinite(Number(value)))
+  .withMessage(`${label} must be a nonnegative finite number.`).bail()
   .custom((value) => !integer || Number.isSafeInteger(Number(value)))
   .withMessage(integer
     ? `${label} must be a nonnegative whole number within the supported range.`
@@ -137,10 +138,6 @@ exports.getProductsValidator = [
     .isString().withMessage('keyword must be a single string.').bail()
     .trim()
     .isLength({ max: 200 }).withMessage('keyword must contain at most 200 characters.'),
-  ...['page', 'limit'].map((field) => query(field).optional()
-    .custom((value) => typeof value === 'string' && /^\d+$/.test(value)
-      && Number.isSafeInteger(Number(value)) && Number(value) > 0)
-    .withMessage('page and limit must be positive whole numbers within the supported range.')),
   validatorMiddleware,
 ];
 

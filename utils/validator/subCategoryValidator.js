@@ -1,23 +1,9 @@
-const { body, param } = require('express-validator');
+const { body } = require('express-validator');
+const { nameValidator, idValidator } = require('./commonValidators');
 const validatorMiddleware = require('../../middlewares/validatorMiddleware');
 
-const subCategoryNameValidator = () => body('name')
-  .exists()
-  .withMessage('Subcategory name is required.')
-  .bail()
-  .isString()
-  .withMessage('Subcategory name must be a string.')
-  .bail()
-  .trim()
-  .notEmpty()
-  .withMessage('Subcategory name is required.')
-  .bail()
-  .isLength({ min: 2, max: 32 })
-  .withMessage('Subcategory name must contain between 2 and 32 characters.');
-
-const subCategoryIdValidator = () => param('id')
-  .isMongoId()
-  .withMessage('Invalid subcategory ID. Expected 24 hexadecimal characters.');
+const subCategoryNameValidator = () => nameValidator('Subcategory', 2);
+const subCategoryIdValidator = () => idValidator('subcategory');
 
 const parentCategoryValidator = () => body('category')
   .exists()

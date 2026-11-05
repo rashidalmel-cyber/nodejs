@@ -75,7 +75,6 @@ For POST and PUT requests, choose **Body → raw → JSON**.
    ```
 
    Expect 201. Copy the returned product ID for GET, PUT, and DELETE requests to `/api/v1/products/PRODUCT_ID`.
-   To test lesson 67, use a subcategory from another category: expect 400 and an error on `subcategories`.
 
 Image fields currently store text; file uploading is covered later in the course.
 Existing JSON success/error messages and validation safeguards are retained. Source filenames remain in the project's `controllers` directory.

@@ -1,41 +1,14 @@
-const { body, param } = require('express-validator');
+const { nameValidator, idValidator } = require('./commonValidators');
 const validatorMiddleware = require('../../middlewares/validatorMiddleware');
 
-const brandNameValidator = () => body('name')
-  .exists()
-  .withMessage('Brand name is required.')
-  .bail()
-  .isString()
-  .withMessage('Brand name must be a string.')
-  .bail()
-  .trim()
-  .notEmpty()
-  .withMessage('Brand name is required.')
-  .bail()
-  .isLength({ min: 3, max: 32 })
-  .withMessage('Brand name must contain between 3 and 32 characters.');
+exports.getBrandValidator = [idValidator('brand'), validatorMiddleware];
 
-const brandIdValidator = () => param('id')
-  .isMongoId()
-  .withMessage('Invalid brand ID. Expected 24 hexadecimal characters.');
-
-exports.getBrandValidator = [
-  brandIdValidator(),
-  validatorMiddleware,
-];
-
-exports.createBrandValidator = [
-  brandNameValidator(),
-  validatorMiddleware,
-];
+exports.createBrandValidator = [nameValidator('Brand'), validatorMiddleware];
 
 exports.updateBrandValidator = [
-  brandIdValidator(),
-  brandNameValidator(),
+  idValidator('brand'),
+  nameValidator('Brand'),
   validatorMiddleware,
 ];
 
-exports.deleteBrandValidator = [
-  brandIdValidator(),
-  validatorMiddleware,
-];
+exports.deleteBrandValidator = [idValidator('brand'), validatorMiddleware];

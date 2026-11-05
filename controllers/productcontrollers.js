@@ -2,8 +2,16 @@ const slugify = require('slugify');
 const asyncHandler = require('express-async-handler');
 const mongoose = require('mongoose');
 const ApiError = require('../utils/apiError');
+const getPagination = require('../utils/pagination');
+const getProductSort = require('../utils/productSort');
 
 const Product = require('../models/productmodel');
+
+const productReferences = [
+  { path: 'category', select: '_id name' },
+  { path: 'subcategories', select: '_id name' },
+  { path: 'brand', select: '_id name' },
+];
 
 const productFields = [
   'title', 'description', 'quantity', 'price', 'priceAfterDiscount',
@@ -24,16 +32,9 @@ const getProductData = (body) => {
 // @desc    Get list of products
 // @route   GET /api/v1/products
 // @access  Public
-exports.getProducts = asyncHandler(async (req, res, next) => {
-    const page = req.query.page === undefined ? 1 : Number(req.query.page);
-    const limit = req.query.limit === undefined ? 5 : Number(req.query.limit);
-    const skip = (page - 1) * limit;
-
-    if (!Number.isSafeInteger(page) || page < 1
-        || !Number.isSafeInteger(limit) || limit < 1
-        || !Number.isSafeInteger(skip)) {
-        return next(new ApiError('page and limit must be positive whole numbers within the supported range.', 400));
-    }
+exports.getProducts = asyncHandler(async (req, res) => {
+    const { page, limit, skip } = getPagination(req.query, 25);
+    const sort = getProductSort(req.query.sort);
 
     const filter = {};
     const searchKeyword = req.query.keyword ? req.query.keyword.trim() : '';
@@ -45,7 +46,9 @@ exports.getProducts = asyncHandler(async (req, res, next) => {
         ];
     }
 
-    const products = await Product.find(filter).skip(skip).limit(limit);
+    const products = await Product.find(filter)
+        .sort(sort).skip(skip).limit(limit)
+        .populate(productReferences);
     res.status(200).json({
         status: 'success',
         message: products.length ? 'Products retrieved successfully.' : 'No products found.',
@@ -67,7 +70,7 @@ exports.getProduct = asyncHandler(async (req, res, next) => {
     return next(new ApiError('Invalid product ID. Expected 24 hexadecimal characters.', 400));
   }
 
-  const product = await Product.findById(id);
+  const product = await Product.findById(id).populate(productReferences);
   if (!product) {
     return next(new ApiError(`Product not found for ID: ${id}.`, 404));
   }
@@ -102,7 +105,7 @@ exports.updateProduct = asyncHandler(async (req, res, next) => {
     id,
     data,
     { returnDocument: 'after', runValidators: true }
-  );
+  ).populate(productReferences);
 
   if (!product) {
     return next(new ApiError(`Product not found for ID: ${id}.`, 404));
@@ -145,5 +148,6 @@ exports.createProduct = asyncHandler(async (req, res, next) => {
     data.title = data.title.trim();
     data.slug = slugify(data.title);
     const product = await Product.create(data);
+    await product.populate(productReferences);
     res.status(201).json({ status: 'success', message: 'Product created successfully.', data: product });
 });

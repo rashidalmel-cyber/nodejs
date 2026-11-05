@@ -2,8 +2,8 @@ const slugify = require('slugify');
 const asyncHandler = require('express-async-handler');
 const ApiError = require('../utils/apiError');
 const CategoryModel = require('../models/CategoryModel');
+const getPagination = require('../utils/pagination');
 
-// استيراد الموديل مع تسميته بحرف كبير لتجنب الالتباس
 const SubCategory = require('../models/SubCategoryModel');
 
 // Nested creates get their parent category from the URL before body validation.
@@ -24,15 +24,7 @@ exports.setCategoryIdToBody = (req, res, next) => {
 // @route   GET /api/v1/categories/:categoryId/subcategories
 // @access  Public
 exports.getSubCategories = asyncHandler(async (req, res, next) => {
-    const page = req.query.page === undefined ? 1 : Number(req.query.page);
-    const limit = req.query.limit === undefined ? 5 : Number(req.query.limit);
-    const skip = (page - 1) * limit;
-
-    if (!Number.isSafeInteger(page) || page < 1
-        || !Number.isSafeInteger(limit) || limit < 1
-        || !Number.isSafeInteger(skip)) {
-        return next(new ApiError('page and limit must be positive whole numbers within the supported range.', 400));
-    }
+    const { page, limit, skip } = getPagination(req.query);
 
     const filter = {};
     const { categoryId } = req.params;
@@ -81,7 +73,6 @@ exports.createSubCategory = asyncHandler(async (req, res, next) => {
         return next(new ApiError(`Parent category not found for ID: ${categoryId}.`, 404));
     }
     
-    // استخدام SubCategory للإنشاء وتخزين النتيجة في متغير مختلف
     const subCategory = await SubCategory.create({ 
         name, 
         slug: slugify(name), 

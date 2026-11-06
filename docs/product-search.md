@@ -23,6 +23,10 @@ An omitted or blank keyword returns the usual product list.
 When `limit` is omitted, up to **25 products** are returned per page. `page`
 defaults to `1`. Supply `limit` explicitly to choose a different page size.
 
+Filter by a category ID using `category=<24-character MongoDB ID>`. Category
+filtering combines with `keyword`, `sort`, `page`, and `limit` and runs before
+pagination. Invalid IDs or duplicate category parameters return status 400.
+
 The keyword must be a single string of at most 200 characters after trimming.
 Repeated keyword parameters are rejected with status 400.
 

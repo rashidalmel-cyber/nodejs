@@ -3,7 +3,7 @@
 The API accepts the image in JSON, uploads it to Cloudinary, and returns its HTTPS
 URL. The frontend does not need to call Cloudinary directly or know its API secret.
 
-Configure these server environment variables (or set them in `config.env`):
+Configure these server environment variables (or set them in `backend/config.env`):
 
 ```env
 CLOUDINARY_CLOUD_NAME=your_cloud_name

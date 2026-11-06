@@ -20,10 +20,10 @@ Run from the project directory:
 
 ```powershell
 # Validate products and image links, save a preview, without database writes.
-node scripts/seedProducts.js
+node backend/scripts/seedProducts.js
 
-# Insert the catalogue into the database configured by config.env.
-node scripts/seedProducts.js --apply
+# Insert the catalogue into the database configured by backend/config.env.
+node backend/scripts/seedProducts.js --apply
 ```
 
 The script validates the models and checks all image URLs before writing.
@@ -31,8 +31,8 @@ Database changes run in a MongoDB transaction; insertion failures roll back the
 transaction. Existing records are preserved. Repeating the same import skips
 products with the same slug and matching relationships; conflicts abort the import.
 
-The prepared data is saved in `scripts/data/sample-products.json`.
-After insertion, `scripts/data/seed-products-report.json` lists the resulting
+The prepared data is saved in `backend/scripts/data/sample-products.json`.
+After insertion, `backend/scripts/data/seed-products-report.json` lists the resulting
 product IDs and their related category, subcategory and brand IDs.
 
 Check the catalogue in Postman:

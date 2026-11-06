@@ -1,0 +1,53 @@
+erDiagram
+    Category ||--o{ SubCategory : "parent category"
+    Category ||--o{ Product : "required category"
+    Brand |o--o{ Product : "optional brand"
+    SubCategory }o--o{ Product : "subcategories array"
+    Category {
+        ObjectId _id PK
+        String name UK "required"
+        String slug
+        String image
+        Date createdAt "automatic"
+        Date updatedAt "automatic"
+        Number __v "automatic"
+    }
+    SubCategory {
+        ObjectId _id PK
+        String name UK "required"
+        String slug
+        ObjectId category FK "ref Category; required"
+        Date createdAt "automatic"
+        Date updatedAt "automatic"
+        Number __v "automatic"
+    }
+    Brand {
+        ObjectId _id PK
+        String name UK "required"
+        String slug
+        String image
+        Date createdAt "automatic"
+        Date updatedAt "automatic"
+        Number __v "automatic"
+    }
+    Product {
+        ObjectId _id PK
+        ObjectId category FK "ref Category; required"
+        ObjectId[] subcategories FK "ref SubCategory; optional"
+        ObjectId brand FK "ref Brand; optional"
+        String title "required"
+        String slug "required"
+        String description "required"
+        Number price "required"
+        Number priceAfterDiscount
+        Number quantity "required"
+        Number sold
+        String imageCover "required"
+        String[] images
+        String[] colors
+        Number ratingsAverage
+        Number ratingsQuantity
+        Date createdAt "automatic"
+        Date updatedAt "automatic"
+        Number __v "automatic"
+    }
